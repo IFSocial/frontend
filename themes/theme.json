@@ -1,0 +1,23 @@
+{
+    "colors": {
+        "Primary100": "#f0f0ff",
+        "Primary500": "#7b79ff",
+        "Primary600": "#4945ff",
+        "Primary700": "#271fe0",
+
+        "Neutral0": "#fff",
+        "Neutral100": "#f6f6f9",
+        "Neutral150": "#eaeaef",
+        
+        "Success100": "#eafbe7",
+        "Success500": "#5cb176",
+        "Success600": "#328048",
+        "Success700": "#2f6846",
+
+        "Danger100": "#fcecea",
+        "Danger500": "#ee5e52",
+        "Danger600": "#d02b20",
+        "Danger700": "#b72b1a"
+    },
+    "typography": {}
+  }
