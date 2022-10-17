@@ -19,5 +19,41 @@
         "Danger600": "#d02b20",
         "Danger700": "#b72b1a"
     },
-    "typography": {}
+    "typography": {
+        "Field": {
+          "fontFamily": "Montserrat Alternates",
+          "fontWeight": 700,
+          "fontSize": "2.9375rem",
+          "lineHeight": "1.171875em",
+          "letterSpacing": "0em"
+        },
+        "Strong": {
+          "fontFamily": "Montserrat Alternates",
+          "fontWeight": 700,
+          "fontSize": "1.0625rem",
+          "lineHeight": "1.171875em",
+          "letterSpacing": "0em"
+        },
+        "Text": {
+          "fontFamily": "Montserrat Alternates",
+          "fontWeight": 400,
+          "fontSize": "1.125rem",
+          "lineHeight": "1.171875em",
+          "letterSpacing": "0em"
+        },
+        "Title": {
+          "fontFamily": "Montserrat Alternates",
+          "fontWeight": 700,
+          "fontSize": "1.5rem",
+          "lineHeight": "1.171875em",
+          "letterSpacing": "0em"
+        },
+        "Regular": {
+          "fontFamily": "Roboto",
+          "fontWeight": 400,
+          "fontSize": "1.1875rem",
+          "lineHeight": "1.171875em",
+          "letterSpacing": "0em"
+        }
+      }
   }

@@ -2,14 +2,16 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react';
 
-import Button, { ButtonProps } from '.';
+import { Button, ButtonProps } from '.';
 
 export default {
   title: 'UI/Buttons',
   component: Button,
 } as Meta;
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />;
+const Template: Story<ButtonProps> = function Component(args) {
+  return <Button {...args} />;
+};
 
 export const Large = Template.bind({});
 Large.args = {

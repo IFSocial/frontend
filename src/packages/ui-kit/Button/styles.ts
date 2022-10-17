@@ -2,6 +2,10 @@ import styled, { css } from 'styled-components';
 
 export type StyledButtonProps = {
   /**
+   * If `true`, the button will be disabled.
+   */
+  disabled?: boolean;
+  /**
    * How large should the button be?
    */
   size: 'small' | 'medium' | 'large';
@@ -16,6 +20,9 @@ export type StyledButtonProps = {
     | 'successSecondary'
     | 'danger'
     | 'dangerSecondary';
+  /**
+   * If `true`, the button will show loading state.
+   */
   loading: boolean;
 };
 

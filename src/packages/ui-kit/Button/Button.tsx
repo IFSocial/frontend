@@ -6,17 +6,9 @@ export interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     Partial<Styled.StyledButtonProps> {
   /**
-   * If `true`, the button will be disabled.
-   */
-  disabled?: boolean;
-  /**
    * Button contents.
    */
   children: ReactNode;
-  /**
-   * If `true`, the button will show loading state.
-   */
-  loading?: boolean;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
@@ -41,8 +33,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
       loading={loading}
       {...rest}
     >
-        {loading && <Styled.Dot />}
-        {children}
+      {loading && <Styled.Dot />}
+      {children}
     </Styled.Button>
   );
 });
