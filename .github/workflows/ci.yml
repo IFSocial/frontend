@@ -1,0 +1,36 @@
+name: Test suite
+
+on:
+  pull_request:
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    steps:
+    - name: 📡 Checkout
+      uses: actions/checkout@v3
+      with:
+          fetch-depth: 0
+      
+    - name: 🖥 Node
+      uses: actions/setup-node@3
+      with:
+        node-version: 16
+        
+    - name: 🏗 Install Dependencies
+      run: yarn
+      
+    - name: 👩‍🏫 Check commit message
+      run: wagoid/commitlint-github-action@v1
+      
+    - name: 🧹 Lint
+      run: yarn lint
+      
+    - name: 🧪 Run Tests
+      run: yarn test --coverage
+      
+      
