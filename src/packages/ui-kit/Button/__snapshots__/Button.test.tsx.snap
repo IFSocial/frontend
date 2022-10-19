@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button can have focus 1`] = `
+<button
+  class="sc-bcXHqe gGloyY"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button should render a large button 1`] = `
+<button
+  class="sc-bcXHqe bIukhK"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button should render a medium button 1`] = `
+<button
+  class="sc-bcXHqe gGloyY"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button should render a primary button 1`] = `
+<button
+  class="sc-bcXHqe gGloyY"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button should render a secondary button 1`] = `
+<button
+  class="sc-bcXHqe hbTobl"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button should render a small button 1`] = `
+<button
+  class="sc-bcXHqe BztYZ"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`Button should render a submit button 1`] = `
+<button
+  class="sc-bcXHqe gGloyY"
+  type="submit"
+>
+  Button
+</button>
+`;
+
+exports[`Button should render correctly 1`] = `
+<button
+  class="sc-bcXHqe gGloyY"
+  type="button"
+>
+  Button
+</button>
+`;
