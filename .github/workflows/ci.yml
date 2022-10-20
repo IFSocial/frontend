@@ -7,6 +7,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NODE_PATH: ${{ github.workspace }}/node_modules
+
     steps:
       - name: 📡 Checkout
         uses: actions/checkout@v3
@@ -22,9 +26,7 @@ jobs:
         run: yarn
 
       - name: 👩‍🏫 Check commit message
-        uses: wagoid/commitlint-github-action@v1
-          env:
-          NODE_PATH: ${{ github.workspace }}/node_modules
+        run: wagoid/commitlint-github-action@v1
 
       - name: 🧹 Lint
         run: yarn lint
