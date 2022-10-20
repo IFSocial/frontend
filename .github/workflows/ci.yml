@@ -9,6 +9,7 @@ jobs:
 
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      NODE_PATH: ${{ github.workspace }}/node_modules
 
     steps:
       - name: 📡 Checkout
@@ -26,8 +27,6 @@ jobs:
 
       - name: 👩‍🏫 Check commit message
         run: wagoid/commitlint-github-action@v1
-          env:
-          NODE_PATH: ${{ github.workspace }}/node_modules
 
       - name: 🧹 Lint
         run: yarn lint
