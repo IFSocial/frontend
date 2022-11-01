@@ -1966,16 +1966,6 @@
     slash "^3.0.0"
     strip-ansi "^6.0.0"
 
-"@jest/environment@^29.2.1", "@jest/environment@^29.2.2":
-  version "29.2.2"
-  resolved "https://registry.yarnpkg.com/@jest/environment/-/environment-29.2.2.tgz#481e729048d42e87d04842c38aa4d09c507f53b0"
-  integrity sha512-OWn+Vhu0I1yxuGBJEFFekMYc8aGBGrY4rt47SOh/IFaI+D7ZHCk7pKRiSoZ2/Ml7b0Ony3ydmEHRx/tEOC7H1A==
-  dependencies:
-    "@jest/fake-timers" "^29.2.2"
-    "@jest/types" "^29.2.1"
-    "@types/node" "*"
-    jest-mock "^29.2.2"
-
 "@jest/environment@^29.2.2":
   version "29.2.2"
   resolved "https://registry.yarnpkg.com/@jest/environment/-/environment-29.2.2.tgz#481e729048d42e87d04842c38aa4d09c507f53b0"
@@ -2014,18 +2004,6 @@
   dependencies:
     expect "^29.2.2"
     jest-snapshot "^29.2.2"
-
-"@jest/fake-timers@^29.2.1", "@jest/fake-timers@^29.2.2":
-  version "29.2.2"
-  resolved "https://registry.yarnpkg.com/@jest/fake-timers/-/fake-timers-29.2.2.tgz#d8332e6e3cfa99cde4bc87d04a17d6b699deb340"
-  integrity sha512-nqaW3y2aSyZDl7zQ7t1XogsxeavNpH6kkdq+EpXncIDvAkjvFD7hmhcIs1nWloengEWUoWqkqSA6MSbf9w6DgA==
-  dependencies:
-    "@jest/types" "^29.2.1"
-    "@sinonjs/fake-timers" "^9.1.2"
-    "@types/node" "*"
-    jest-message-util "^29.2.1"
-    jest-mock "^29.2.2"
-    jest-util "^29.2.1"
 
 "@jest/fake-timers@^29.2.2":
   version "29.2.2"
@@ -3748,10 +3726,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16 || 17 || 18", "@types/react@^18.0.21":
-  version "18.0.21"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.21.tgz#b8209e9626bb00a34c76f55482697edd2b43cc67"
-  integrity sha512-7QUCOxvFgnD5Jk8ZKlUAhVcRj7GuJRjnjjiY/IUBWKgOlnvDvTMLD4RTF7NPyVmbRhNrbomZiOepg7M/2Kj1mA==
+"@types/react@*", "@types/react@16 || 17 || 18", "@types/react@^18.0.24":
+  version "18.0.24"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.24.tgz#2f79ed5b27f08d05107aab45c17919754cc44c20"
+  integrity sha512-wRJWT6ouziGUy+9uX0aW4YOJxAY0bG6/AOk5AW5QSvZqI7dk6VBIbXvcVgIw/W5Jrl24f77df98GEKTJGOLx7Q==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -9725,15 +9703,6 @@ jest-mock@^27.0.6:
   dependencies:
     "@jest/types" "^27.5.1"
     "@types/node" "*"
-
-jest-mock@^29.2.1, jest-mock@^29.2.2:
-  version "29.2.2"
-  resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-29.2.2.tgz#9045618b3f9d27074bbcf2d55bdca6a5e2e8bca7"
-  integrity sha512-1leySQxNAnivvbcx0sCB37itu8f4OX2S/+gxLAV4Z62shT4r4dTG9tACDywUAEZoLSr36aYUTsVp3WKwWt4PMQ==
-  dependencies:
-    "@jest/types" "^29.2.1"
-    "@types/node" "*"
-    jest-util "^29.2.1"
 
 jest-mock@^29.2.2:
   version "29.2.2"
