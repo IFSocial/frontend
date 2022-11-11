@@ -1,17 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import axios from 'axios';
+import api from '../../../services/api';
 
-import { Button } from '../../ui-kit/Button';
+type User = {
+  created_at: string;
+  email: string;
+  id: string;
+  name: string;
+  password: string;
+};
 
 function ConnectionTest() {
+  const [users, setUsers] = useState<User[]>();
+
   async function getAll() {
-    const response = axios.get('http://192.168.18.247:5000/users');
-    // eslint-disable-next-line no-console
-    console.log(response);
+    const { data } = await api.get('users');
+    return data;
   }
 
-  return <Button onClick={() => getAll()}>APERTE EM MIM</Button>;
+  useEffect(() => {
+    getAll().then((response) => {
+      setUsers(response);
+    });
+  }, []);
+
+  return (
+    <ul>
+      {users?.map((user) => {
+        return <li key={user.name}>{user.name}</li>;
+      })}
+    </ul>
+  );
 }
 
 export default ConnectionTest;
