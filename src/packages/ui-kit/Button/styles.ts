@@ -51,7 +51,7 @@ const typeModifier = {
   `,
   secondary: css`
     color: ${({ theme }) => theme.colors.Primary600};
-    border: 1px solid ${({ theme }) => theme.colors.Primary200};
+    border: 1px solid ${({ theme }) => theme.colors.Primary100};
     background: ${({ theme }) => theme.colors.Primary100};
     &:hover {
       background: ${({ theme }) => theme.colors.Neutral0};
@@ -62,13 +62,13 @@ const typeModifier = {
     }
   `,
   tertiary: css`
-    color: ${({ theme }) => theme.colors.Neutral800};
+    color: ${({ theme }) => theme.colors.Neutral150};
     background: ${({ theme }) => theme.colors.Neutral0};
     &:hover {
       background: ${({ theme }) => theme.colors.Neutral100};
     }
     &:active {
-      color: ${({ theme }) => theme.colors.Neutral800};
+      color: ${({ theme }) => theme.colors.Neutral150};
       background: ${({ theme }) => theme.colors.Neutral150};
     }
   `,
@@ -84,10 +84,10 @@ const typeModifier = {
   `,
   successSecondary: css`
     color: ${({ theme }) => theme.colors.Success600};
-    border: 1px solid ${({ theme }) => theme.colors.Success200};
+    border: 1px solid ${({ theme }) => theme.colors.Success500};
     background: ${({ theme }) => theme.colors.Success100};
     &:hover {
-      border: 1px solid ${({ theme }) => theme.colors.Success200};
+      border: 1px solid ${({ theme }) => theme.colors.Success500};
       background: ${({ theme }) => theme.colors.Neutral0};
     }
     &:active {
@@ -97,7 +97,7 @@ const typeModifier = {
   `,
   danger: css`
     color: ${({ theme }) => theme.colors.Neutral0};
-    border: 1px solid ${({ theme }) => theme.colors.Neutral200};
+    border: 1px solid ${({ theme }) => theme.colors.Neutral150};
     background: ${({ theme }) => theme.colors.Danger600};
     &:hover {
       background: ${({ theme }) => theme.colors.Danger500};
@@ -108,7 +108,7 @@ const typeModifier = {
   `,
   dangerSecondary: css`
     color: ${({ theme }) => theme.colors.Danger600};
-    border: 1px solid ${({ theme }) => theme.colors.Danger200};
+    border: 1px solid ${({ theme }) => theme.colors.Danger500};
     background: ${({ theme }) => theme.colors.Danger100};
     &:hover {
       background: ${({ theme }) => theme.colors.Neutral0};
@@ -116,7 +116,7 @@ const typeModifier = {
     &:active {
       color: ${({ theme }) => theme.colors.Danger600};
       border: 1px solid ${({ theme }) => theme.colors.Danger700};
-      background: ${({ theme }) => theme.colors.Neutral};
+      background: ${({ theme }) => theme.colors.Neutral0};
     }
   `,
 };
@@ -136,7 +136,7 @@ export const Button = styled.button<StyledButtonProps>`
   &:disabled {
     cursor: not-allowed;
     background: ${({ theme }) => theme.colors.Neutral150};
-    color: ${({ theme }) => theme.colors.Neutral600};
+    color: ${({ theme }) => theme.colors.Neutral150};
   }
 `;
 
