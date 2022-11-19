@@ -33,6 +33,7 @@ module.exports = {
     'plugin:chai-friendly/recommended',
   ],
   rules: {
+    'react/prop-types': 'off',
     'react/jsx-filename-extension': [
       'warn',
       {
