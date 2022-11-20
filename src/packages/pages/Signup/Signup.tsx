@@ -14,11 +14,12 @@ function Signup() {
   const [emailConf, setEmailConf] = useState('');
   const [senha, setSenha] = useState('');
   const [error, setError] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const { signup } = useAuth();
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     if (!name || !email || !emailConf || !senha) {
       setError('Preencha todos os campos');
       return;
@@ -27,18 +28,24 @@ function Signup() {
       setError('Os e-mails não são iguais');
       return;
     }
+
     try {
-      signup(name, email, senha);
+      setIsLoading(true);
 
+      const cad = await signup(name, email, senha);
+
+      if (cad === null) {
+        alert('error');
+        return;
+      }
+      alert('Usuário cadatrado com sucesso!');
       navigate('/');
-
-      <Alert severity="success" color="success">
-        Usuário cadatrado com sucesso!
-      </Alert>;
     } catch (e) {
       <Alert severity="error" color="error">
         {e as string}
       </Alert>;
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -79,11 +86,15 @@ function Signup() {
           }}
         />
         <C.labelError>{error}</C.labelError>
-        <Button onClick={handleSignup}>Inscrever-se</Button>
+        <Button onClick={handleSignup} loading={isLoading} disabled={isLoading}>
+          Inscrever-se
+        </Button>
         <C.LabelSignin>
           Já tem uma conta?
           <C.Strong>
-            <Link to="/">&nbsp;Entre</Link>
+            <Link to="/" aria-disabled={isLoading}>
+              &nbsp;Entre
+            </Link>
           </C.Strong>
         </C.LabelSignin>
       </C.Content>

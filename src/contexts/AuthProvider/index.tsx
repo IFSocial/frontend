@@ -33,7 +33,9 @@ export function AuthProvider({ children }: IAuthProvider) {
 
   // Se cadastra
   const signup = async (name: string, email: string, password: string) => {
-    await SignupRequest(name, email, password);
+    const response = await SignupRequest(name, email, password);
+
+    return response.data;
   };
 
   // Faz logout
