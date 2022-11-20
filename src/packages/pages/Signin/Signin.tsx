@@ -80,6 +80,7 @@ function Signin() {
           maxWidth="350px"
         >
           <AccountCircleIcon style={{ fontSize: 150 }} />
+          <C.Subtitle>Login</C.Subtitle>
 
           <TextField
             label="E-mail escolar"
@@ -92,7 +93,7 @@ function Signin() {
           />
           <TextField
             type="password"
-            label="Digite sua Senha"
+            label="Digite sua senha"
             variant="outlined"
             fullWidth
             value={senha}
