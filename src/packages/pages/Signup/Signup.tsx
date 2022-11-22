@@ -17,6 +17,8 @@ import {
 import { useAuth } from '../../../hooks/useAuth';
 import * as C from './styles';
 
+const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+/i;
+
 function Signup() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -30,6 +32,10 @@ function Signup() {
   const { signup } = useAuth();
 
   const handleSignup = async () => {
+    if (!email.match(emailRegex)) {
+      setError('O email precisa ser um email');
+      return;
+    }
     if (!name || !email || !matricula || !senha || !sexo) {
       setError('Preencha todos os campos');
       return;
@@ -38,18 +44,18 @@ function Signup() {
       setError('As senhas não coincidem');
       return;
     }
-
+    if (senha.length < 4) {
+      setError('A senha tem que ter 4 ou mais caracteres');
+      return;
+    }
     try {
-      const cad = await signup(name, email, senha);
+      await signup(name, matricula, sexo, email, senha);
 
-      if (cad === null) {
-        alert('error');
-        return;
-      }
       alert('Usuário cadatrado com sucesso!');
+
       navigate('/');
-    } catch (e) {
-      alert(e);
+    } catch (err) {
+      alert('Algo deu errado');
     }
   };
 

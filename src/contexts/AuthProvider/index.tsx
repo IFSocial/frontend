@@ -16,7 +16,7 @@ export function AuthProvider({ children }: IAuthProvider) {
   useEffect(() => {
     const users = getUserLocalStorage();
 
-    if (user) {
+    if (users) {
       setUser(users);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -25,15 +25,27 @@ export function AuthProvider({ children }: IAuthProvider) {
   // Faz login
   const authenticate = async (email: string, password: string) => {
     const response = await LoginRequest(email, password);
-    const payload = { token: response.token, email };
+    const payload = { token: response.jwtToken, email };
 
     setUser(payload);
     setUserLocalStorage(payload);
   };
 
   // Se cadastra
-  const signup = async (name: string, email: string, password: string) => {
-    const response = await SignupRequest(name, email, password);
+  const signup = async (
+    name: string,
+    registration: string,
+    sexo: string,
+    email: string,
+    password: string,
+  ) => {
+    const response = await SignupRequest(
+      name,
+      registration,
+      sexo,
+      email,
+      password,
+    );
 
     return response.data;
   };

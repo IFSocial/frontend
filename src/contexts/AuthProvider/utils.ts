@@ -21,10 +21,10 @@ export function getUserLocalStorage() {
 // Faz request do login passando email e senha como payload
 export async function LoginRequest(email: string, password: string) {
   try {
-    const request = await api.post('login', { email, password });
+    const request = await api.post('/users/signin', { email, password });
 
     return request.data;
-  } catch (error) {
+  } catch {
     return null;
   }
 }
@@ -32,14 +32,22 @@ export async function LoginRequest(email: string, password: string) {
 // Faz request do cadastrp passando nome, email e senha como payload
 export async function SignupRequest(
   name: string,
+  registration: string,
+  sexo: string,
   email: string,
   password: string,
 ) {
   try {
-    const request = await api.post('user', { name, email, password });
+    const request = await api.post('/users/signup', {
+      name,
+      registration,
+      sexo,
+      email,
+      password,
+    });
 
     return request.data;
-  } catch (error) {
+  } catch {
     return null;
   }
 }

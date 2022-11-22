@@ -6,7 +6,13 @@ export interface IUser {
 export interface IContext extends IUser {
   authenticate: (email: string, password: string) => Promise<void>;
   logout: () => void;
-  signup: (name: string, email: string, password: string) => Promise<void>;
+  signup: (
+    name: string,
+    registration: string,
+    sexo: string,
+    email: string,
+    password: string,
+  ) => Promise<void>;
 }
 
 export interface IAuthProvider {
