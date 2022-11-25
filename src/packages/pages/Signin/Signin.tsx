@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { Alert, Box, Button, Grid, TextField } from '@mui/material';
+import { Box, Button, Grid, TextField } from '@mui/material';
 
 import { useAuth } from '../../../hooks/useAuth';
 import * as C from './styles';
@@ -24,9 +24,7 @@ function Signin() {
       await authenticate(email, senha);
       navigate('/home');
     } catch {
-      <Alert severity="error" color="error">
-        E-mail ou senha incorretos
-      </Alert>;
+      setError('E-mail ou senha incorretos');
     }
   };
 
@@ -53,6 +51,7 @@ function Signin() {
           <C.Title>BEM-VINDO A SEMADEC</C.Title>
           <C.Subtitle>DATA_DO_EVENTO</C.Subtitle>
           <Button
+            itemID="cadastrar"
             variant="contained"
             onClick={() => {
               navigate('/signup');
@@ -104,7 +103,7 @@ function Signin() {
           />
           <C.labelError>{error}</C.labelError>
           <Box textAlign="end" width="100%">
-            <Button variant="contained" onClick={handleLogin}>
+            <Button itemID="entrar" variant="contained" onClick={handleLogin}>
               Entrar
             </Button>
           </Box>

@@ -6,7 +6,12 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   height: 100vh;
-  gap: 20px;
 `;
 
-export const Title = styled.h2``;
+export const Title = styled.h1`
+  font-size: 64px;
+`;
+
+export const Subtitle = styled.p`
+  font-size: 24px;
+`;

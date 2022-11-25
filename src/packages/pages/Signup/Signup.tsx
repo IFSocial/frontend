@@ -17,7 +17,7 @@ import {
 import { useAuth } from '../../../hooks/useAuth';
 import * as C from './styles';
 
-const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+/i;
+const emailRegex = /^[a-z0-9.]+@escolar.ifrn.edu.br/i;
 
 function Signup() {
   const [name, setName] = useState('');
@@ -33,7 +33,7 @@ function Signup() {
 
   const handleSignup = async () => {
     if (!email.match(emailRegex)) {
-      setError('O email precisa ser um email');
+      setError('O email precisa ser um email escolar!');
       return;
     }
     if (!name || !email || !matricula || !senha || !sexo) {
@@ -51,11 +51,12 @@ function Signup() {
     try {
       await signup(name, matricula, sexo, email, senha);
 
+      // eslint-disable-next-line no-alert
       alert('Usuário cadatrado com sucesso!');
 
       navigate('/');
     } catch (err) {
-      alert('Algo deu errado');
+      setError('Algo deu errado');
     }
   };
 
@@ -192,7 +193,11 @@ function Signup() {
           </FormControl>
           <C.labelError>{error}</C.labelError>
           <Box textAlign="end" width="100%" mt="4px">
-            <Button variant="contained" onClick={handleSignup}>
+            <Button
+              itemID="cadastrar"
+              variant="contained"
+              onClick={handleSignup}
+            >
               Cadastrar
             </Button>
           </Box>
