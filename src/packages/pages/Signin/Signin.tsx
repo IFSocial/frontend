@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { Box, Button, Grid, Link, TextField } from '@mui/material';
+import { Box, Button, Grid, TextField } from '@mui/material';
 
 import { useAuth } from '../../../hooks/useAuth';
 import * as C from './styles';
@@ -40,23 +40,33 @@ function Signin() {
         container
         item
         xs={12}
-        sm={5}
+        sm={12}
+        md={5}
         direction="column"
         justifyContent="center"
         alignItems="center"
-        fontFamily="Helvetica"
         height="100%"
-        bgcolor="#094300"
+        bgcolor="#d3d3d3"
       >
         <Box maxWidth="400px">
           <C.Title>BEM-VINDO A SEMADEC</C.Title>
           <C.Subtitle>DATA_DO_EVENTO</C.Subtitle>
+          <Button
+            itemID="cadastrar"
+            variant="contained"
+            onClick={() => {
+              navigate('/signup');
+            }}
+          >
+            Cadastrar-se
+          </Button>
         </Box>
       </Grid>
       <Grid
         item
         xs={12}
-        sm={7}
+        sm={12}
+        md={7}
         container
         direction="column"
         justifyContent="center"
@@ -70,10 +80,8 @@ function Signin() {
           boxShadow="0 1px 2px #0003"
           maxWidth="350px"
         >
-          <AccountCircleIcon style={{ fontSize: 150, color: '#399E29' }} />
-          <C.Subtitle style={{ color: '#399E29', fontFamily: 'Helvetica' }}>
-            Faça o seu login
-          </C.Subtitle>
+          <AccountCircleIcon style={{ fontSize: 150 }} />
+          <C.Subtitle>Login</C.Subtitle>
 
           <TextField
             label="E-mail escolar"
@@ -97,28 +105,10 @@ function Signin() {
           />
           <C.labelError>{error}</C.labelError>
           <Box textAlign="end" width="100%">
-            <Button
-              itemID="entrar"
-              variant="contained"
-              color="success"
-              onClick={handleLogin}
-            >
+            <Button itemID="entrar" variant="contained" onClick={handleLogin}>
               Entrar
             </Button>
           </Box>
-        </Box>
-        <Box>
-          <p style={{ color: '#399E29' }}> Ainda não tem uma conta? </p>
-          <Button
-            itemID="cadastrar"
-            variant="contained"
-            color="success"
-            onClick={() => {
-              navigate('/signup');
-            }}
-          >
-            Criar uma conta
-          </Button>
         </Box>
       </Grid>
     </Grid>

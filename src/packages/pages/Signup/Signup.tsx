@@ -76,7 +76,8 @@ function Signup() {
         container
         item
         xs={12}
-        sm={5}
+        sm={12}
+        md={5}
         direction="column"
         justifyContent="center"
         alignItems="center"
@@ -99,7 +100,8 @@ function Signup() {
       <Grid
         item
         xs={12}
-        sm={7}
+        sm={12}
+        md={7}
         container
         direction="column"
         justifyContent="center"
