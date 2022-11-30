@@ -1,23 +1,18 @@
 {
     "colors": {
-        "Primary100": "#f0f0ff",
-        "Primary500": "#7b79ff",
-        "Primary600": "#4945ff",
-        "Primary700": "#271fe0",
+        "Primary100": "#a5c78f",
+        "Primary500": "#669f43",
+        "Primary600": "#c0ecb9",
+        "Primary700": "#399e29",
+        "Primary900": "#094300",
 
         "Neutral0": "#ffffff",
-        "Neutral100": "#f6f6f9",
-        "Neutral150": "#eaeaef",
-        
-        "Success100": "#eafbe7",
-        "Success500": "#5cb176",
-        "Success600": "#328048",
-        "Success700": "#2f6846",
 
-        "Danger100": "#fcecea",
-        "Danger500": "#ee5e52",
-        "Danger600": "#d02b20",
-        "Danger700": "#b72b1a"
+        "dark900": "#000000",
+        
+        "Purple500": "#312ed8",
+
+        "Pink500": "#e91e63"
     },
     "typography": {
         "Field": {
@@ -49,7 +44,7 @@
           "letterSpacing": "0em"
         },
         "Regular": {
-          "fontFamily": "Roboto",
+          "fontFamily": "Montserrat Alternates",
           "fontWeight": 400,
           "fontSize": "1.1875rem",
           "lineHeight": "1.171875em",
