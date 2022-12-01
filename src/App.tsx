@@ -1,9 +1,14 @@
 import React from 'react';
 
-import { ConnectionTest } from './packages/layouts/ConnectionTest';
+import { AuthProvider } from './contexts/AuthProvider';
+import RoutesApp from './routes/Routes';
 
 function App() {
-  return <ConnectionTest />;
+  return (
+    <AuthProvider>
+      <RoutesApp />
+    </AuthProvider>
+  );
 }
 
 export default App;
