@@ -2,7 +2,7 @@
 
 exports[`Button can have focus 1`] = `
 <button
-  class="sc-bcXHqe WanEQ"
+  class="sc-bcXHqe cDdZot"
   type="button"
 >
   Button
@@ -11,7 +11,7 @@ exports[`Button can have focus 1`] = `
 
 exports[`Button should render a large button 1`] = `
 <button
-  class="sc-bcXHqe gIvaaq"
+  class="sc-bcXHqe bpLNUr"
   type="button"
 >
   Button
@@ -20,7 +20,7 @@ exports[`Button should render a large button 1`] = `
 
 exports[`Button should render a medium button 1`] = `
 <button
-  class="sc-bcXHqe WanEQ"
+  class="sc-bcXHqe cDdZot"
   type="button"
 >
   Button
@@ -29,7 +29,7 @@ exports[`Button should render a medium button 1`] = `
 
 exports[`Button should render a primary button 1`] = `
 <button
-  class="sc-bcXHqe WanEQ"
+  class="sc-bcXHqe cDdZot"
   type="button"
 >
   Button
@@ -38,7 +38,7 @@ exports[`Button should render a primary button 1`] = `
 
 exports[`Button should render a secondary button 1`] = `
 <button
-  class="sc-bcXHqe bpvVZW"
+  class="sc-bcXHqe iSdlUo"
   type="button"
 >
   Button
@@ -47,7 +47,7 @@ exports[`Button should render a secondary button 1`] = `
 
 exports[`Button should render a small button 1`] = `
 <button
-  class="sc-bcXHqe eyruYJ"
+  class="sc-bcXHqe ciwrzE"
   type="button"
 >
   Button
@@ -56,7 +56,7 @@ exports[`Button should render a small button 1`] = `
 
 exports[`Button should render a submit button 1`] = `
 <button
-  class="sc-bcXHqe WanEQ"
+  class="sc-bcXHqe cDdZot"
   type="submit"
 >
   Button
@@ -65,7 +65,7 @@ exports[`Button should render a submit button 1`] = `
 
 exports[`Button should render correctly 1`] = `
 <button
-  class="sc-bcXHqe WanEQ"
+  class="sc-bcXHqe cDdZot"
   type="button"
 >
   Button
