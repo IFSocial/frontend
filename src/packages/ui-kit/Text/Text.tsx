@@ -1,4 +1,4 @@
-import React, { BaseHTMLAttributes, ReactNode } from 'react';
+import React, { BaseHTMLAttributes, forwardRef, ReactNode } from 'react';
 
 import * as Styled from './styles';
 
@@ -11,12 +11,15 @@ export interface TextProps
   children: ReactNode;
 }
 
-function Text({ children, size = 1, ...rest }: TextProps) {
+const Text = forwardRef<HTMLParagraphElement, TextProps>(function Text(
+  { children, size = 1, ...rest },
+  ref,
+) {
   return (
-    <Styled.Text size={size} {...rest}>
+    <Styled.Text ref={ref} size={size} {...rest}>
       {children}
     </Styled.Text>
   );
-}
+});
 
 export default Text;

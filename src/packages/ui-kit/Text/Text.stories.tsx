@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react';
 import { Text, TextProps } from '.';
 
 export default {
-  title: 'UI/Text',
+  title: 'Typography/Text',
   component: Text,
   argTypes: {
     backgroundColor: { control: 'color' },
