@@ -9,6 +9,12 @@ export const Link = styled(CustomLink)`
   font-family: 'Montserrat Alternates';
 `;
 
+export const LinkMobile = styled(CustomLink)`
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family: 'Montserrat Alternates';
+`;
+
 export const CustomGrid = styled(Grid)`
   font-size: 1.2rem;
   justify-content: space-around;
