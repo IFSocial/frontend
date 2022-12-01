@@ -1,54 +1,96 @@
 {
-    "colors": {
-        "Primary100": "#a5c78f",
-        "Primary500": "#669f43",
-        "Primary600": "#c0ecb9",
-        "Primary700": "#399e29",
-        "Primary900": "#094300",
+  "colors": {
+      "Primary100": "#a5c78f",
+      "Primary500": "#669f43",
+      "Primary600": "#c0ecb9",
+      "Primary700": "#399e29",
+      "Primary900": "#094300",
 
-        "Neutral0": "#ffffff",
+      "Neutral0": "#ffffff",
 
-        "dark900": "#000000",
-        
-        "Purple500": "#312ed8",
+      "dark900": "#000000",
+      
+      "Purple500": "#312ed8",
 
-        "Pink500": "#e91e63"
+      "Pink500": "#e91e63"
+  },
+  "typography": {
+    "title": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 700,
+      "fontSize": "2.5em",
+      "lineHeight": "1.25em",
+      "letterSpacing": "-0.007999999821186066em"
     },
-    "typography": {
-        "Field": {
-          "fontFamily": "Montserrat Alternates",
-          "fontWeight": 700,
-          "fontSize": "2.9375rem",
-          "lineHeight": "1.171875em",
-          "letterSpacing": "0em"
-        },
-        "Strong": {
-          "fontFamily": "Montserrat Alternates",
-          "fontWeight": 700,
-          "fontSize": "1.0625rem",
-          "lineHeight": "1.171875em",
-          "letterSpacing": "0em"
-        },
-        "Text": {
-          "fontFamily": "Montserrat Alternates",
-          "fontWeight": 400,
-          "fontSize": "1.125rem",
-          "lineHeight": "1.171875em",
-          "letterSpacing": "0em"
-        },
-        "Title": {
-          "fontFamily": "Montserrat Alternates",
-          "fontWeight": 700,
-          "fontSize": "1.5rem",
-          "lineHeight": "1.171875em",
-          "letterSpacing": "0em"
-        },
-        "Regular": {
-          "fontFamily": "Montserrat Alternates",
-          "fontWeight": 400,
-          "fontSize": "1.1875rem",
-          "lineHeight": "1.171875em",
-          "letterSpacing": "0em"
-        }
-      }
+    "heading1": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 700,
+      "fontSize": "2em",
+      "lineHeight": "1.25em",
+      "letterSpacing": "-0.0078125em"
+    },
+    "heading2": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 700,
+      "fontSize": "1.375em",
+      "lineHeight": "1.2727272727272727em",
+      "letterSpacing": "-0.009090909226374193em"
+    },
+    "heading3": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 700,
+      "fontSize": "1.125em",
+      "lineHeight": "1.2222222222222223em",
+      "letterSpacing": "0em"
+    },
+    "heading4": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 700,
+      "fontSize": "1em",
+      "lineHeight": "1.25em",
+      "letterSpacing": "0em"
+    },
+    "heading5": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 700,
+      "fontSize": "0.875em",
+      "lineHeight": "1.4285714285714286em",
+      "letterSpacing": "0em"
+    },
+    "heading6": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 700,
+      "fontSize": "0.75em",
+      "lineHeight": "1.3333333333333333em",
+      "letterSpacing": "-0.016666666915019352em"
+    },
+    "text1": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 400,
+      "fontSize": "1em",
+      "lineHeight": "1.375em",
+      "letterSpacing": "0em"
+    },
+    "text2": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 400,
+      "fontSize": "0.875em",
+      "lineHeight": "1.4285714285714286em",
+      "letterSpacing": "0em"
+    },
+    "text3": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 400,
+      "fontSize": "0.75em",
+      "lineHeight": "1.3333333333333333em",
+      "letterSpacing": "-0.004166666728754838em"
+    },
+    "label": {
+      "fontFamily": "Montserrat Alternates",
+      "fontWeight": 700,
+      "fontSize": "1em",
+      "lineHeight": "1.5em",
+      "letterSpacing": "0em"
+    }
   }
+}
