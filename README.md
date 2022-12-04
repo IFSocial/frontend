@@ -34,7 +34,7 @@ O sistema utiliza o Jest como framework de teste. Para roda-lo basta usar:
 yarn test
 ```
 
-Após a mudança de algum componente, provávelmente algum snapshot desatualize e o teste quebre. Para corrigir isto basta rodar:
+Após a mudança de algum componente, provávelmente algum snapshot irá desatualizar e o teste quebrará. Para corrigir isto basta rodar:
 
 ```sh
 yarn test -- -u
