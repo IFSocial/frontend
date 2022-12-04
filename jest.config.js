@@ -7,5 +7,4 @@ module.exports = {
     '~/themes/(.*)': '<rootDir>/themes/$1',
   },
   setupFilesAfterEnv: ['<rootDir>/jest-setup.js'],
-  preset: 'jest-puppeteer',
 };

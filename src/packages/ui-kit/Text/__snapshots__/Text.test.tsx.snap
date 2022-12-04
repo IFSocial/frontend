@@ -2,7 +2,7 @@
 
 exports[`Text should render a text 1 1`] = `
 <p
-  class="sc-bcXHqe dOBKaS"
+  class="sc-bcXHqe cWgToN"
   size="1"
 >
   Text
@@ -11,7 +11,7 @@ exports[`Text should render a text 1 1`] = `
 
 exports[`Text should render a text 2 1`] = `
 <p
-  class="sc-bcXHqe hCXeSq"
+  class="sc-bcXHqe iIGZhh"
   size="2"
 >
   Text
@@ -20,7 +20,7 @@ exports[`Text should render a text 2 1`] = `
 
 exports[`Text should render a text 3 1`] = `
 <p
-  class="sc-bcXHqe eIJVca"
+  class="sc-bcXHqe fwGtmB"
   size="3"
 >
   Text
@@ -29,7 +29,7 @@ exports[`Text should render a text 3 1`] = `
 
 exports[`Text should render correctly 1`] = `
 <p
-  class="sc-bcXHqe dOBKaS"
+  class="sc-bcXHqe cWgToN"
   size="1"
 >
   Text
