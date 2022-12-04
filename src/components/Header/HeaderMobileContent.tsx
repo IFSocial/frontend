@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 
-import { Home, QueryBuilder, PhoneAndroid } from '@material-ui/icons';
+import {
+  Home,
+  QueryBuilder,
+  PhoneAndroid,
+  ExitToApp,
+} from '@material-ui/icons';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Box, IconButton, Popover } from '@mui/material';
 
 import { LinkMobile } from './styles';
 
-function HeaderMobileContent() {
+function HeaderMobileContent({ onClick }: { onClick?: () => void }) {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
   const open = Boolean(anchorEl);
@@ -78,6 +83,18 @@ function HeaderMobileContent() {
               color="#000"
             >
               Contatos
+            </LinkMobile>
+          </Box>
+          <Box display="flex" flexDirection="row" gap={1}>
+            <ExitToApp />
+            <LinkMobile
+              itemID="sair-popover"
+              href="/"
+              underline="none"
+              color="#000"
+              onClick={onClick}
+            >
+              Sair
             </LinkMobile>
           </Box>
         </Box>

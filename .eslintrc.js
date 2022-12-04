@@ -34,6 +34,7 @@ module.exports = {
   ],
   rules: {
     'react/prop-types': 'off',
+    'react/require-default-props': 'off',
     'react/jsx-filename-extension': [
       'warn',
       {

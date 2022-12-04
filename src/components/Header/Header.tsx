@@ -8,7 +8,7 @@ import HeaderMobileContent from './HeaderMobileContent';
 import HeaderWebContent from './HeaderWebContent';
 import { CustomGrid, Title } from './styles';
 
-function Header() {
+function Header({ onClick }: { onClick?: () => void }) {
   const isDesktop = useMediaQuery({ minWidth: '1000px' });
 
   return (
@@ -27,7 +27,11 @@ function Header() {
           <img src={logo} alt="logo" width="120px" height="125px" />
           <Title size={1}>SEMADEC</Title>
         </Box>
-        {isDesktop ? <HeaderWebContent /> : <HeaderMobileContent />}
+        {isDesktop ? (
+          <HeaderWebContent />
+        ) : (
+          <HeaderMobileContent onClick={onClick} />
+        )}
       </CustomGrid>
     </Grid>
   );
