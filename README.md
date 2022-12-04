@@ -12,7 +12,11 @@ Logo em seguida instale os pacotes com o comando:
 yarn
 ```
 
-Após isso, o sistema já estará pronto para rodar localmente.
+Após isso, o sistema já estará pronto para rodar localmente. Para isto utilize o comando:
+
+```sh
+yarn start
+```
 
 ## Storybook
 
