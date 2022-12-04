@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render correctly 1`] = `
+<div
+  class="sc-bcXHqe iWcaxZ"
+  data-testid="Card"
+>
+  <p
+    class="sc-gswNZR jThlhX"
+  />
+  <div
+    class="sc-hLBbgP gglZrP"
+  >
+    <img
+      alt="Imagem do Card"
+      class="sc-eDvSVe bFKOJD"
+      data-testid="card-image"
+      src=""
+    />
+  </div>
+  <p
+    class="sc-dkrFOg eVsFVa"
+  />
+</div>
+`;
