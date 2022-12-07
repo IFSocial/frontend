@@ -29,7 +29,7 @@ function Footer({ onClick }: { onClick?: () => void }) {
           </Title>
         </Box>
         <Box display="flex" justifyContent="center" alignItems="center">
-          <ColorButton itemID="sair" onClick={onClick}>
+          <ColorButton data-testid="sair" onClick={onClick}>
             Sair
           </ColorButton>
         </Box>

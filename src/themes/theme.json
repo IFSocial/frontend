@@ -1,6 +1,7 @@
 {
   "colors": {
       "Primary100": "#a5c78f",
+      "Primary400": "rgba(102, 159, 67, 0.3)",
       "Primary500": "#669f43",
       "Primary600": "#c0ecb9",
       "Primary700": "rgba(57, 158, 41, 0.35)",

@@ -32,6 +32,7 @@ function HeaderMobileContent({ onClick }: { onClick?: () => void }) {
         color="inherit"
         aria-label="menu"
         onClick={handleClick}
+        data-testid="hamburger-button"
       >
         <MenuIcon
           style={{
@@ -55,7 +56,7 @@ function HeaderMobileContent({ onClick }: { onClick?: () => void }) {
           <Box display="flex" flexDirection="row" gap={1}>
             <Home />
             <LinkMobile
-              itemID="home-popover"
+              data-testid="home-popover"
               href="/home"
               underline="none"
               color="#000"
@@ -66,7 +67,7 @@ function HeaderMobileContent({ onClick }: { onClick?: () => void }) {
           <Box display="flex" flexDirection="row" gap={1}>
             <QueryBuilder />
             <LinkMobile
-              itemID="horarios-popover"
+              data-testid="horarios-popover"
               href="/horarios"
               underline="none"
               color="#000"
@@ -77,7 +78,7 @@ function HeaderMobileContent({ onClick }: { onClick?: () => void }) {
           <Box display="flex" flexDirection="row" gap={1}>
             <PhoneAndroid />
             <LinkMobile
-              itemID="contatos-popover"
+              data-testid="contatos-popover"
               href="/contatos"
               underline="none"
               color="#000"
@@ -88,7 +89,7 @@ function HeaderMobileContent({ onClick }: { onClick?: () => void }) {
           <Box display="flex" flexDirection="row" gap={1}>
             <ExitToApp />
             <LinkMobile
-              itemID="sair-popover"
+              data-testid="sair-popover"
               href="/"
               underline="none"
               color="#000"
