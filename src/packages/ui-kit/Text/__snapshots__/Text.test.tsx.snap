@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text should render a text 1 1`] = `
+<p
+  class="sc-bcXHqe cWgToN"
+  size="1"
+>
+  Text
+</p>
+`;
+
+exports[`Text should render a text 2 1`] = `
+<p
+  class="sc-bcXHqe iIGZhh"
+  size="2"
+>
+  Text
+</p>
+`;
+
+exports[`Text should render a text 3 1`] = `
+<p
+  class="sc-bcXHqe fwGtmB"
+  size="3"
+>
+  Text
+</p>
+`;
+
+exports[`Text should render correctly 1`] = `
+<p
+  class="sc-bcXHqe cWgToN"
+  size="1"
+>
+  Text
+</p>
+`;

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Heading should render a heading 1 1`] = `
+<h1
+  class="sc-bcXHqe eeqYsM"
+>
+  Heading
+</h1>
+`;
+
+exports[`Heading should render a heading 2 1`] = `
+<h2
+  class="sc-gswNZR ldosNv"
+>
+  Heading
+</h2>
+`;
+
+exports[`Heading should render a heading 3 1`] = `
+<h3
+  class="sc-dkrFOg ckXIJJ"
+>
+  Heading
+</h3>
+`;
+
+exports[`Heading should render a heading 4 1`] = `
+<h4
+  class="sc-hLBbgP cSyXYP"
+>
+  Heading
+</h4>
+`;
+
+exports[`Heading should render a heading 5 1`] = `
+<h5
+  class="sc-eDvSVe fxfHJZ"
+>
+  Heading
+</h5>
+`;
+
+exports[`Heading should render a heading 6 1`] = `
+<h6
+  class="sc-jSUZER fzcGmS"
+>
+  Heading
+</h6>
+`;
+
+exports[`Heading should render correctly 1`] = `
+<h1
+  class="sc-bcXHqe eeqYsM"
+>
+  Heading
+</h1>
+`;
