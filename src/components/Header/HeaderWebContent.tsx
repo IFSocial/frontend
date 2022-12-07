@@ -9,10 +9,15 @@ function HeaderWebContent() {
   return (
     <>
       <Box display="flex" justifyContent="space-between" width="50%">
-        <Link itemID="home" href="/home" underline="none" color="#fff">
+        <Link data-testid="home" href="/home" underline="none" color="#fff">
           Home
         </Link>
-        <Link itemID="horarios" href="/horarios" underline="none" color="#fff">
+        <Link
+          data-testid="horarios"
+          href="/horarios"
+          underline="none"
+          color="#fff"
+        >
           Horários
         </Link>
         <Link itemID="contatos" href="/contatos" underline="none" color="#fff">
@@ -20,7 +25,7 @@ function HeaderWebContent() {
         </Link>
       </Box>
       <Box>
-        <Link itemID="perfil" href="/perfil">
+        <Link data-testid="perfil" href="/perfil">
           <AccountCircleIcon style={{ fontSize: '5rem', color: '#fff' }} />
         </Link>
       </Box>

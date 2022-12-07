@@ -1,82 +1,44 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { Box, Button, Grid, Link } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 
-import { useAuth } from '../../../hooks/useAuth';
-import * as C from './styles';
+import { Footer, Header } from '../../../components';
+import { useAuth, useHome } from '../../../hooks';
+import {
+  Title,
+  Subtitle,
+  Conteudo,
+  CustomGrid,
+  CustomButton1,
+  CustomButton2,
+} from './styles';
 
 function Home() {
   const { logout } = useAuth();
   const navigate = useNavigate();
-
+  const { content, date } = useHome();
   return (
     <Grid container>
+      <title>Semadec - Home</title>
+      <Header
+        onClick={() => {
+          logout();
+          navigate('/');
+        }}
+      />
       <Grid
         container
-        item
-        xs={12}
-        justifyContent="space-between"
-        alignItems="center"
-        bgcolor="#d3d3d3"
-        border="1px solid #000"
-        borderRadius="12px"
-        flexWrap="wrap"
-        px="12px"
-      >
-        <AccountCircleIcon style={{ fontSize: 100 }} />
-
-        <Box display="flex" justifyContent="space-between" width="50%">
-          <Link
-            itemID="home"
-            href="/home"
-            fontSize="24px"
-            underline="none"
-            color="#000"
-          >
-            Home
-          </Link>
-          <Link
-            itemID="horarios"
-            href="/home"
-            fontSize="24px"
-            underline="none"
-            color="#000"
-          >
-            Horários
-          </Link>
-          <Link
-            itemID="contatos"
-            href="/home"
-            fontSize="24px"
-            underline="none"
-            color="#000"
-          >
-            Contatos
-          </Link>
-        </Box>
-        <Box>
-          <Button
-            itemID="sair"
-            variant="contained"
-            onClick={() => {
-              logout();
-              navigate('/');
-            }}
-          >
-            Sair
-          </Button>
-        </Box>
-      </Grid>
-      <Grid
-        container
-        height="100vh"
         justifyContent="center"
         alignItems="center"
         textAlign="center"
+        my="20px"
       >
-        <Grid
+        <Box>
+          <Title>BEM-VINDO À SEMADEC</Title>
+          <Subtitle>{date}</Subtitle>
+        </Box>
+        <CustomGrid
           container
           item
           xs={12}
@@ -84,37 +46,44 @@ function Home() {
           md={8}
           p="32px"
           direction="column"
-          justifyContent="space-between"
+          justifyContent="center"
           alignItems="center"
-          bgcolor="#d3d3d3"
-          height="75vh"
-          width="75vh"
+          height="50vh"
+          width="50vh"
           border="1px solid #000"
           borderRadius="12px"
         >
-          <Box>
-            <C.Title>BEM-VINDO A SEMADEC</C.Title>
-            <C.Subtitle>DATA_DO_EVENTO</C.Subtitle>
+          <Box p="24px">
+            <Conteudo>{content}</Conteudo>
           </Box>
-          <Box
-            bgcolor="white"
-            width="80%"
-            height="30%"
-            border="1px solid #000"
-            borderRadius="12px"
-          >
-            <C.Subtitle>
-              INFORMAÇÕES SOBRE O EVENTO: <br />
-              “A SEMADEC É A SEMANA ....”
-            </C.Subtitle>
+          <Box display="flex" width="100%" justifyContent="center" my="12px">
+            <Box width="45%" textAlign="left">
+              <CustomButton2
+                data-testid="edital"
+                variant="contained"
+                size="large"
+              >
+                Edital
+              </CustomButton2>
+            </Box>
+            <Box width="45%" textAlign="right">
+              <CustomButton1
+                data-testid="ver-modalidades"
+                variant="contained"
+                size="large"
+              >
+                Ver Modalidades
+              </CustomButton1>
+            </Box>
           </Box>
-          <Box width="100%" textAlign="right">
-            <Button itemID="ver-modalidades" variant="contained" size="large">
-              Ver Modalidades
-            </Button>
-          </Box>
-        </Grid>
+        </CustomGrid>
       </Grid>
+      <Footer
+        onClick={() => {
+          logout();
+          navigate('/');
+        }}
+      />
     </Grid>
   );
 }

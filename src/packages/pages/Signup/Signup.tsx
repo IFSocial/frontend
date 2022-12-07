@@ -1,23 +1,34 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 import {
   Box,
-  Button,
   FormControl,
   FormControlLabel,
   FormLabel,
   Grid,
+  IconButton,
   Radio,
   RadioGroup,
   TextField,
 } from '@mui/material';
 
-import { useAuth } from '../../../hooks/useAuth';
-import * as C from './styles';
+import logo from '../../../assets/logo.png';
+import { useAuth, useHome } from '../../../hooks';
+import {
+  CustomButton1,
+  CustomButton2,
+  CustomGridLeft,
+  CustomIcon,
+  CustomImage,
+  CustomText,
+  LabelError,
+  Subtitle,
+  Title,
+} from '../Signin/styles';
 
-const emailRegex = /^[a-z0-9.]+@escolar.ifrn.edu.br/i;
+const emailRegex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+/i;
 
 function Signup() {
   const [name, setName] = useState('');
@@ -27,13 +38,16 @@ function Signup() {
   const [senhaConf, setSenhaConf] = useState('');
   const [sexo, setSexo] = useState('');
   const [error, setError] = useState('');
+  const [passIsVisible, setPassIsVisible] = useState<boolean>(false);
+  const [passConfIsVisible, setPassConfIsVisible] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const { signup } = useAuth();
+  const { date } = useHome();
 
   const handleSignup = async () => {
     if (!email.match(emailRegex)) {
-      setError('O email precisa ser um email escolar!');
+      setError('Digite um email válido!');
       return;
     }
     if (!name || !email || !matricula || !senha || !sexo) {
@@ -72,7 +86,8 @@ function Signup() {
       alignItems="center"
       textAlign="center"
     >
-      <Grid
+      <title>Semadec - Cadastre-se</title>
+      <CustomGridLeft
         container
         item
         xs={12}
@@ -82,21 +97,13 @@ function Signup() {
         justifyContent="center"
         alignItems="center"
         height="100%"
-        bgcolor="#d3d3d3"
       >
-        <Box maxWidth="400px">
-          <C.Title>BEM-VINDO A SEMADEC</C.Title>
-          <C.Subtitle>DATA_DO_EVENTO</C.Subtitle>
-          <Button
-            variant="contained"
-            onClick={() => {
-              navigate('/');
-            }}
-          >
-            Entrar
-          </Button>
+        <Box maxWidth="500px">
+          <Title>BEM-VINDO À SEMADEC</Title>
+          <Subtitle>{date}</Subtitle>
+          <CustomImage src={logo} alt="logo" />
         </Box>
-      </Grid>
+      </CustomGridLeft>
       <Grid
         item
         xs={12}
@@ -115,9 +122,10 @@ function Signup() {
           boxShadow="0 1px 2px #0003"
           maxWidth="350px"
         >
-          <AccountCircleIcon style={{ fontSize: 150 }} />
-          <C.Subtitle>Cadastro</C.Subtitle>
+          <CustomIcon style={{ fontSize: 150 }} />
+          <CustomText>Criar uma conta</CustomText>
           <TextField
+            data-testid="nome"
             label="Nome"
             variant="outlined"
             fullWidth
@@ -128,16 +136,7 @@ function Signup() {
             margin="dense"
           />
           <TextField
-            label="E-mail escolar"
-            variant="outlined"
-            fullWidth
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            margin="dense"
-          />
-          <TextField
+            data-testid="matricula"
             label="Matricula"
             variant="outlined"
             fullWidth
@@ -148,24 +147,13 @@ function Signup() {
             margin="dense"
           />
           <TextField
-            type="password"
-            label="Digite sua senha"
+            data-testid="email"
+            label="E-mail escolar"
             variant="outlined"
             fullWidth
-            value={senha}
+            value={email}
             onChange={(e) => {
-              setSenha(e.target.value);
-            }}
-            margin="dense"
-          />
-          <TextField
-            type="password"
-            label="Confirme sua senha"
-            variant="outlined"
-            fullWidth
-            value={senhaConf}
-            onChange={(e) => {
-              setSenhaConf(e.target.value);
+              setEmail(e.target.value);
             }}
             margin="dense"
           />
@@ -193,16 +181,72 @@ function Signup() {
               </Box>
             </RadioGroup>
           </FormControl>
-          <C.labelError>{error}</C.labelError>
+          <TextField
+            data-testid="senha"
+            type={passIsVisible ? 'text' : 'password'}
+            label="Digite sua senha"
+            variant="outlined"
+            fullWidth
+            value={senha}
+            onChange={(e) => {
+              setSenha(e.target.value);
+            }}
+            margin="dense"
+            InputProps={{
+              endAdornment: (
+                <IconButton
+                  data-testid="toggleSenhaBtn"
+                  onClick={() => setPassIsVisible(!passIsVisible)}
+                >
+                  {passIsVisible ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              ),
+            }}
+          />
+          <TextField
+            data-testid="confSenha"
+            type={passIsVisible ? 'text' : 'password'}
+            label="Confirme sua senha"
+            variant="outlined"
+            fullWidth
+            value={senhaConf}
+            onChange={(e) => {
+              setSenhaConf(e.target.value);
+            }}
+            margin="dense"
+            InputProps={{
+              endAdornment: (
+                <IconButton
+                  data-testid="toggleConfSenhaBtn"
+                  onClick={() => setPassConfIsVisible(!passConfIsVisible)}
+                >
+                  {passConfIsVisible ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              ),
+            }}
+          />
+          <LabelError>{error}</LabelError>
           <Box textAlign="end" width="100%" mt="4px">
-            <Button
-              itemID="cadastrar"
+            <CustomButton1
+              data-testid="cadastrar"
               variant="contained"
               onClick={handleSignup}
             >
-              Cadastrar
-            </Button>
+              Criar conta
+            </CustomButton1>
           </Box>
+        </Box>
+        <Box display="flex" flexDirection="column" justifyContent="end">
+          <CustomText>Já tem uma conta?</CustomText>
+          <CustomButton2
+            data-testid="btnEntrar"
+            variant="contained"
+            onClick={() => {
+              navigate('/');
+            }}
+          >
+            Entrar
+          </CustomButton2>
         </Box>
       </Grid>
     </Grid>
