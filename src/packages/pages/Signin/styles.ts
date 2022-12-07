@@ -38,17 +38,15 @@ export const CustomIcon = styled(AccountCircleIcon)`
   color: ${({ theme }) => theme.colors.Primary800};
 `;
 
-export const CustomButtonEntrar = MUIStyled(Button)<ButtonProps>(
-  ({ theme }) => ({
-    color: theme.palette.getContrastText(green[600]),
-    backgroundColor: green[800],
-    '&:hover': {
-      backgroundColor: green[900],
-    },
-  }),
-);
+export const CustomButton1 = MUIStyled(Button)<ButtonProps>(({ theme }) => ({
+  color: theme.palette.getContrastText(green[600]),
+  backgroundColor: green[800],
+  '&:hover': {
+    backgroundColor: green[900],
+  },
+}));
 
-export const CustomButtonCadastrar = MUIStyled(Button)<ButtonProps>(() => ({
+export const CustomButton2 = MUIStyled(Button)<ButtonProps>(() => ({
   color: green[900],
   backgroundColor: green[100],
   '&:hover': {

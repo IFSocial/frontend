@@ -12,9 +12,9 @@ import {
   LabelError,
   CustomImage,
   CustomIcon,
-  CustomButtonEntrar,
-  CustomButtonCadastrar,
   CustomText,
+  CustomButton1,
+  CustomButton2,
 } from './styles';
 
 function Signin() {
@@ -109,18 +109,18 @@ function Signin() {
           />
           <LabelError>{error}</LabelError>
           <Box textAlign="end" width="100%">
-            <CustomButtonEntrar
+            <CustomButton1
               data-testid="btnEntrar"
               variant="contained"
               onClick={handleLogin}
             >
               Entrar
-            </CustomButtonEntrar>
+            </CustomButton1>
           </Box>
         </Box>
         <Box display="flex" flexDirection="column" justifyContent="end">
           <CustomText>Ainda não tem uma conta?</CustomText>
-          <CustomButtonCadastrar
+          <CustomButton2
             data-testid="btnCadastrar"
             variant="contained"
             onClick={() => {
@@ -128,7 +128,7 @@ function Signin() {
             }}
           >
             Criar uma conta
-          </CustomButtonCadastrar>
+          </CustomButton2>
         </Box>
       </Grid>
     </Grid>
