@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 
 import logo from '../../../assets/logo.png';
-import { useAuth } from '../../../hooks/useAuth';
+import { useAuth, useHome } from '../../../hooks';
 import {
   CustomButton1,
   CustomButton2,
@@ -43,6 +43,7 @@ function Signup() {
   const navigate = useNavigate();
 
   const { signup } = useAuth();
+  const { date } = useHome();
 
   const handleSignup = async () => {
     if (!email.match(emailRegex)) {
@@ -99,7 +100,7 @@ function Signup() {
       >
         <Box maxWidth="500px">
           <Title>BEM-VINDO À SEMADEC</Title>
-          <Subtitle>DATA_DO_EVENTO</Subtitle>
+          <Subtitle>{date}</Subtitle>
           <CustomImage src={logo} alt="logo" />
         </Box>
       </CustomGridLeft>

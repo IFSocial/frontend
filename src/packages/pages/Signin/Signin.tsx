@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Grid, TextField } from '@mui/material';
 
 import logo from '../../../assets/logo.png';
-import { useAuth } from '../../../hooks/useAuth';
+import { useAuth, useHome } from '../../../hooks';
 import {
   CustomGridLeft,
   Subtitle,
@@ -19,6 +19,7 @@ import {
 
 function Signin() {
   const { authenticate } = useAuth();
+  const { date } = useHome();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
@@ -60,7 +61,7 @@ function Signin() {
       >
         <Box maxWidth="500px">
           <Title>BEM-VINDO À SEMADEC</Title>
-          <Subtitle>DATA_DO_EVENTO</Subtitle>
+          <Subtitle>{date}</Subtitle>
           <CustomImage src={logo} alt="logo" />
         </Box>
       </CustomGridLeft>

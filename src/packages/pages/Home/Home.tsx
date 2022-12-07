@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Grid } from '@mui/material';
 
 import { Footer, Header } from '../../../components';
-import { useAuth } from '../../../hooks/useAuth';
+import { useAuth, useHome } from '../../../hooks';
 import {
   Title,
   Subtitle,
@@ -17,7 +17,7 @@ import {
 function Home() {
   const { logout } = useAuth();
   const navigate = useNavigate();
-
+  const { content, date } = useHome();
   return (
     <Grid container>
       <title>Semadec - Home</title>
@@ -36,7 +36,7 @@ function Home() {
       >
         <Box>
           <Title>BEM-VINDO À SEMADEC</Title>
-          <Subtitle>DATA_DO_EVENTO</Subtitle>
+          <Subtitle>{date}</Subtitle>
         </Box>
         <CustomGrid
           container
@@ -53,16 +53,8 @@ function Home() {
           border="1px solid #000"
           borderRadius="12px"
         >
-          <Box
-            bgcolor="white"
-            width="80%"
-            border="1px solid #000"
-            borderRadius="12px"
-          >
-            <Conteudo>
-              INFORMAÇÕES SOBRE O EVENTO: <br />
-              “A SEMADEC É A SEMANA ....”
-            </Conteudo>
+          <Box p="24px">
+            <Conteudo>{content}</Conteudo>
           </Box>
           <Box display="flex" width="100%" justifyContent="center" my="12px">
             <Box width="45%" textAlign="left">
