@@ -2974,10 +2974,10 @@
     is-color-stop "^1.1.0"
     rgb-hex "^3.0.0"
 
-"@react-theming/storybook-addon@^1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@react-theming/storybook-addon/-/storybook-addon-1.1.7.tgz#3df1ae181f99869e6d94bde36640745343bdd6dd"
-  integrity sha512-CgLGEhwTpelKYdl6rwcL1WH/sWJXKAhhVTk5101+MqFzpoBvPJLlZ2zMiWYhsTiCzkGwhj/W5GT0EylTtgHK0g==
+"@react-theming/storybook-addon@^1.1.9":
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/@react-theming/storybook-addon/-/storybook-addon-1.1.9.tgz#cba026d5b012f7720d69907406d44d0b3ad107b2"
+  integrity sha512-YMJfuAYXbPUdMgmWsNtwtDWeX17XU/MyHIvPd67DSpKR8mrl9wlsv0O6WPdrKlYPZotrya0VG6IUgvZAlQsX7A==
   dependencies:
     "@codemirror/theme-one-dark" "0.19.0"
     "@focus-reactive/react-yaml" "^1.1.2"
