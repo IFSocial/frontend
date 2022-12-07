@@ -4,6 +4,7 @@
       "Primary500": "#669f43",
       "Primary600": "#c0ecb9",
       "Primary700": "rgba(57, 158, 41, 0.35)",
+      "Primary800": "#399e29",
       "Primary900": "#094300",
 
       "Neutral0": "#ffffff",
@@ -16,77 +17,77 @@
   },
   "typography": {
     "title": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 700,
       "fontSize": "2.5em",
       "lineHeight": "1.25em",
       "letterSpacing": "-0.007999999821186066em"
     },
     "heading1": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 700,
       "fontSize": "2em",
       "lineHeight": "1.25em",
       "letterSpacing": "-0.0078125em"
     },
     "heading2": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 700,
       "fontSize": "1.375em",
       "lineHeight": "1.2727272727272727em",
       "letterSpacing": "-0.009090909226374193em"
     },
     "heading3": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 700,
       "fontSize": "1.125em",
       "lineHeight": "1.2222222222222223em",
       "letterSpacing": "0em"
     },
     "heading4": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 700,
       "fontSize": "1em",
       "lineHeight": "1.25em",
       "letterSpacing": "0em"
     },
     "heading5": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 700,
       "fontSize": "0.875em",
       "lineHeight": "1.4285714285714286em",
       "letterSpacing": "0em"
     },
     "heading6": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 700,
       "fontSize": "0.75em",
       "lineHeight": "1.3333333333333333em",
       "letterSpacing": "-0.016666666915019352em"
     },
     "text1": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 400,
       "fontSize": "1em",
       "lineHeight": "1.375em",
       "letterSpacing": "0em"
     },
     "text2": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 400,
       "fontSize": "0.875em",
       "lineHeight": "1.4285714285714286em",
       "letterSpacing": "0em"
     },
     "text3": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 400,
       "fontSize": "0.75em",
       "lineHeight": "1.3333333333333333em",
       "letterSpacing": "-0.004166666728754838em"
     },
     "label": {
-      "fontFamily": "Montserrat",
+      "fontFamily": "'Montserrat', sans-serif",
       "fontWeight": 700,
       "fontSize": "1em",
       "lineHeight": "1.5em",

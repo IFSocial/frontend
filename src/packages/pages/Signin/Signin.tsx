@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import { Box, Button, Grid, TextField } from '@mui/material';
+import { Box, Grid, TextField } from '@mui/material';
 
+import logo from '../../../assets/logo.png';
 import { useAuth } from '../../../hooks/useAuth';
-import * as C from './styles';
+import {
+  CustomGridLeft,
+  Subtitle,
+  Title,
+  LabelError,
+  CustomImage,
+  CustomIcon,
+  CustomButtonEntrar,
+  CustomButtonCadastrar,
+  CustomText,
+} from './styles';
 
 function Signin() {
   const { authenticate } = useAuth();
@@ -36,7 +46,8 @@ function Signin() {
       alignItems="center"
       textAlign="center"
     >
-      <Grid
+      <title>Semadec - Login</title>
+      <CustomGridLeft
         container
         item
         xs={12}
@@ -46,22 +57,13 @@ function Signin() {
         justifyContent="center"
         alignItems="center"
         height="100%"
-        bgcolor="#d3d3d3"
       >
-        <Box maxWidth="400px">
-          <C.Title>BEM-VINDO A SEMADEC</C.Title>
-          <C.Subtitle>DATA_DO_EVENTO</C.Subtitle>
-          <Button
-            itemID="cadastrar"
-            variant="contained"
-            onClick={() => {
-              navigate('/signup');
-            }}
-          >
-            Cadastrar-se
-          </Button>
+        <Box maxWidth="500px">
+          <Title>BEM-VINDO À SEMADEC</Title>
+          <Subtitle>DATA_DO_EVENTO</Subtitle>
+          <CustomImage src={logo} alt="logo" />
         </Box>
-      </Grid>
+      </CustomGridLeft>
       <Grid
         item
         xs={12}
@@ -80,10 +82,11 @@ function Signin() {
           boxShadow="0 1px 2px #0003"
           maxWidth="350px"
         >
-          <AccountCircleIcon style={{ fontSize: 150 }} />
-          <C.Subtitle>Login</C.Subtitle>
+          <CustomIcon style={{ fontSize: 150 }} />
+          <Subtitle>Login</Subtitle>
 
           <TextField
+            data-testid="inputEmail"
             label="E-mail escolar"
             variant="outlined"
             fullWidth
@@ -93,6 +96,7 @@ function Signin() {
             }}
           />
           <TextField
+            data-testid="inputSenha"
             type="password"
             label="Digite sua senha"
             variant="outlined"
@@ -103,12 +107,28 @@ function Signin() {
               setSenha(e.target.value);
             }}
           />
-          <C.labelError>{error}</C.labelError>
+          <LabelError>{error}</LabelError>
           <Box textAlign="end" width="100%">
-            <Button itemID="entrar" variant="contained" onClick={handleLogin}>
+            <CustomButtonEntrar
+              data-testid="btnEntrar"
+              variant="contained"
+              onClick={handleLogin}
+            >
               Entrar
-            </Button>
+            </CustomButtonEntrar>
           </Box>
+        </Box>
+        <Box display="flex" flexDirection="column" justifyContent="end">
+          <CustomText>Ainda não tem uma conta?</CustomText>
+          <CustomButtonCadastrar
+            data-testid="btnCadastrar"
+            variant="contained"
+            onClick={() => {
+              navigate('/signup');
+            }}
+          >
+            Criar uma conta
+          </CustomButtonCadastrar>
         </Box>
       </Grid>
     </Grid>
