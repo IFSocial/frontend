@@ -4,20 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Grid } from '@mui/material';
 
 import { Footer, Header } from '../../../components';
-import { useAuth, useHome } from '../../../hooks';
-import {
-  Title,
-  Subtitle,
-  Conteudo,
-  CustomGrid,
-  CustomButton1,
-  CustomButton2,
-} from './styles';
+import { useAuth } from '../../../hooks';
+import { Card } from '../../ui-kit';
+import { Title, CustomGrid } from './styles';
 
-function Home() {
+function Modalidades() {
   const { logout } = useAuth();
   const navigate = useNavigate();
-  const { content, date } = useHome();
   return (
     <Grid container>
       <title>Semadec - Home</title>
@@ -35,8 +28,7 @@ function Home() {
         my="20px"
       >
         <Box width="100%">
-          <Title>BEM-VINDO À SEMADEC</Title>
-          <Subtitle>{date}</Subtitle>
+          <Title>Modalidades</Title>
         </Box>
         <CustomGrid
           container
@@ -54,30 +46,13 @@ function Home() {
           borderRadius="12px"
         >
           <Box p="24px">
-            <Conteudo>{content}</Conteudo>
-          </Box>
-          <Box display="flex" width="100%" justifyContent="center" my="12px">
-            <Box width="45%" textAlign="left">
-              <CustomButton2
-                data-testid="edital"
-                variant="contained"
-                size="large"
-              >
-                Edital
-              </CustomButton2>
-            </Box>
-            <Box width="45%" textAlign="right">
-              <CustomButton1
-                data-testid="ver-modalidades"
-                variant="contained"
-                size="large"
-                onClick={() => {
-                  navigate('/modalidades');
-                }}
-              >
-                Ver Modalidades
-              </CustomButton1>
-            </Box>
+            <Card
+              subtitle="Esportes Coletivos"
+              image="https://quizizz.com/media/resource/gs/quizizz-media/quizzes/e4f18483-db85-4a3d-a350-a0c581c4ace4"
+              onClick={() => {
+                navigate('/esportes');
+              }}
+            />
           </Box>
         </CustomGrid>
       </Grid>
@@ -91,4 +66,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Modalidades;
