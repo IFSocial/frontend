@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Grid } from '@mui/material';
 
 import { Footer, Header } from '../../../components';
 import { useAuth } from '../../../hooks';
-import { Title, CustomGrid, Conteudo, Subtitle, CustomButton1 } from './styles';
+import {
+  Title,
+  CustomGrid,
+  Conteudo,
+  Subtitle,
+  CustomButton1,
+  Table,
+  Row,
+  TituloConteudo,
+} from './styles';
 
 function Perfil() {
   const { logout } = useAuth();
   const navigate = useNavigate();
+  const [content, setContent] = useState<'Dados' | 'Modalidades'>('Dados');
   return (
     <Grid container>
       <title>Semadec - Meu Perfil</title>
@@ -53,32 +63,67 @@ function Perfil() {
             gap={1}
             alignItems="center"
           >
-            <Subtitle>Meus dados pessoais:</Subtitle>
-            <Box
-              width="75%"
-              display="flex"
-              flexDirection="column"
-              textAlign="left"
-            >
-              <Conteudo>Nome:</Conteudo>
-              <Conteudo>Matrícula:</Conteudo>
-              <Conteudo>Email escolar:</Conteudo>
-              <Conteudo>Sexo:</Conteudo>
-            </Box>
-            <Box display="flex" width="100%" justifyContent="center">
-              <Box width="90%" textAlign="right">
-                <CustomButton1
-                  data-testid="minhas-modalidades"
-                  variant="contained"
-                  size="large"
-                  onClick={() => {
-                    navigate('/minhasmodalidades');
-                  }}
+            <Subtitle>
+              {content === 'Dados'
+                ? 'Meus dados pessoais'
+                : 'Minhas Modalidades'}
+            </Subtitle>
+            {content === 'Dados' ? (
+              <>
+                <Box
+                  width="75%"
+                  display="flex"
+                  flexDirection="column"
+                  textAlign="left"
                 >
-                  Minhas Modalidades
-                </CustomButton1>
-              </Box>
-            </Box>
+                  <Conteudo>Nome:</Conteudo>
+                  <Conteudo>Matrícula:</Conteudo>
+                  <Conteudo>Email escolar:</Conteudo>
+                  <Conteudo>Sexo:</Conteudo>
+                </Box>
+                <Box display="flex" width="100%" justifyContent="center">
+                  <Box width="90%" textAlign="right">
+                    <CustomButton1
+                      data-testid="minhas-modalidades"
+                      variant="contained"
+                      size="large"
+                      onClick={() => {
+                        setContent('Modalidades');
+                      }}
+                    >
+                      Minhas Modalidades
+                    </CustomButton1>
+                  </Box>
+                </Box>
+              </>
+            ) : (
+              <>
+                <Table>
+                  <Row>
+                    <TituloConteudo>Esporte</TituloConteudo>
+                    <TituloConteudo>Modalidade</TituloConteudo>
+                  </Row>
+                  <Row>
+                    <Conteudo>Futsal</Conteudo>
+                    <Conteudo>Coletivo</Conteudo>
+                  </Row>
+                </Table>
+                <Box display="flex" width="100%" justifyContent="center">
+                  <Box width="90%" textAlign="right">
+                    <CustomButton1
+                      data-testid="meus-dados"
+                      variant="contained"
+                      size="large"
+                      onClick={() => {
+                        setContent('Dados');
+                      }}
+                    >
+                      Meus Dados
+                    </CustomButton1>
+                  </Box>
+                </Box>
+              </>
+            )}
           </Box>
         </CustomGrid>
       </Grid>
