@@ -2,7 +2,14 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { ProtectedLayout } from '../components/ProtectedLayout';
-import { Home, Modalidades, Perfil, Signin, Signup } from '../packages/pages';
+import {
+  Contatos,
+  Home,
+  Modalidades,
+  Perfil,
+  Signin,
+  Signup,
+} from '../packages/pages';
 
 function RoutesApp() {
   return (
@@ -29,6 +36,14 @@ function RoutesApp() {
           element={
             <ProtectedLayout>
               <Perfil />
+            </ProtectedLayout>
+          }
+        />
+        <Route
+          path="/contatos"
+          element={
+            <ProtectedLayout>
+              <Contatos />
             </ProtectedLayout>
           }
         />
