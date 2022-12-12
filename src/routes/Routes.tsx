@@ -5,6 +5,7 @@ import { ProtectedLayout } from '../components/ProtectedLayout';
 import {
   Contatos,
   Home,
+  Horarios,
   Modalidades,
   Perfil,
   Signin,
@@ -36,6 +37,14 @@ function RoutesApp() {
           element={
             <ProtectedLayout>
               <Perfil />
+            </ProtectedLayout>
+          }
+        />
+        <Route
+          path="/horarios"
+          element={
+            <ProtectedLayout>
+              <Horarios />
             </ProtectedLayout>
           }
         />
