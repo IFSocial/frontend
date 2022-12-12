@@ -4,16 +4,17 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Grid } from '@mui/material';
 
 import { Footer, Header } from '../../../components';
-import { useAuth } from '../../../hooks';
+import { useAuth, useModalidades } from '../../../hooks';
 import { Card } from '../../ui-kit';
 import { Title, CustomGrid } from './styles';
 
 function Modalidades() {
   const { logout } = useAuth();
+  const { modalidades } = useModalidades();
   const navigate = useNavigate();
   return (
     <Grid container>
-      <title>Semadec - Home</title>
+      <title>Semadec - Modalidades</title>
       <Header
         onClick={() => {
           logout();
@@ -40,19 +41,30 @@ function Modalidades() {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          height="50vh"
           width="50vh"
+          minHeight="55vh"
           border="1px solid #000"
           borderRadius="12px"
         >
-          <Box p="24px">
-            <Card
-              subtitle="Esportes Coletivos"
-              image="https://quizizz.com/media/resource/gs/quizizz-media/quizzes/e4f18483-db85-4a3d-a350-a0c581c4ace4"
-              onClick={() => {
-                navigate('/esportes');
-              }}
-            />
+          <Box
+            p="24px"
+            display="flex"
+            flexWrap="wrap"
+            gap={3}
+            justifyContent="center"
+          >
+            {modalidades?.map((modalidade) => {
+              return (
+                <Card
+                  key={modalidade.id}
+                  subtitle={modalidade.titulo}
+                  image={modalidade.imagem}
+                  onClick={() => {
+                    navigate('/esportes');
+                  }}
+                />
+              );
+            })}
           </Box>
         </CustomGrid>
       </Grid>
