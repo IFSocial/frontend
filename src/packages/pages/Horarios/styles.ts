@@ -15,9 +15,8 @@ export const CustomGrid = styled(Grid)`
 export const TituloConteudo = styled.p`
   font-family: 'Montserrat';
   font-weight: bold;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 100%;
-  letter-spacing: 0.08em;
   word-break: break-all;
 `;
 
@@ -34,7 +33,7 @@ export const Table = styled.div`
   border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.Primary400};
   min-height: 200px;
-  width: 90%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,5 +49,5 @@ export const Row = styled.div`
 `;
 
 export const Cell = styled.div`
-  width: 170px;
+  width: 20%;
 `;

@@ -21,14 +21,17 @@ function Horarios() {
   return (
     <Grid container>
       <title>Semadec - Horários</title>
-      <Header
-        onClick={() => {
-          logout();
-          navigate('/');
-        }}
-      />
+      <Box width="100%" minWidth="650px">
+        <Header
+          onClick={() => {
+            logout();
+            navigate('/');
+          }}
+        />
+      </Box>
       <Grid
         container
+        minWidth="650px"
         justifyContent="center"
         alignItems="center"
         textAlign="center"
@@ -42,8 +45,8 @@ function Horarios() {
           item
           xs={12}
           sm={12}
-          md={8}
-          p="20px"
+          md={9}
+          p="8px"
           direction="column"
           justifyContent="center"
           alignItems="center"
@@ -54,7 +57,7 @@ function Horarios() {
         >
           <Box
             width="100%"
-            p="16px"
+            minWidth="625px"
             display="flex"
             flexDirection="column"
             flexWrap="wrap"
@@ -102,12 +105,14 @@ function Horarios() {
           </Box>
         </CustomGrid>
       </Grid>
-      <Footer
-        onClick={() => {
-          logout();
-          navigate('/');
-        }}
-      />
+      <Box width="100%" minWidth="650px">
+        <Footer
+          onClick={() => {
+            logout();
+            navigate('/');
+          }}
+        />
+      </Box>
     </Grid>
   );
 }
