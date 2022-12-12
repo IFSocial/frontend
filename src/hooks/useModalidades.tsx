@@ -18,7 +18,7 @@ function useModalidades() {
   }
   useEffect(() => {
     getModalidades();
-  }, []);
+  }, [modalidades]);
 
   return { modalidades };
 }

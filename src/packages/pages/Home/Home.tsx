@@ -48,12 +48,12 @@ function Home() {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          height="50vh"
+          minHeight="40vh"
           width="50vh"
           border="1px solid #000"
           borderRadius="12px"
         >
-          <Box p="24px">
+          <Box p="24px" minHeight="30vh">
             <Conteudo>{content}</Conteudo>
           </Box>
           <Box display="flex" width="100%" justifyContent="center" my="12px">
