@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { ProtectedLayout } from '../components/ProtectedLayout';
-import { Home, Modalidades, Signin, Signup } from '../packages/pages';
+import { Home, Modalidades, Perfil, Signin, Signup } from '../packages/pages';
 
 function RoutesApp() {
   return (
@@ -21,6 +21,14 @@ function RoutesApp() {
           element={
             <ProtectedLayout>
               <Modalidades />
+            </ProtectedLayout>
+          }
+        />
+        <Route
+          path="/perfil"
+          element={
+            <ProtectedLayout>
+              <Perfil />
             </ProtectedLayout>
           }
         />
