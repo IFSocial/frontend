@@ -31,6 +31,7 @@ export const Conteudo = styled.p`
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 0.08em;
+  word-break: break-all;
 `;
 
 export const CustomGrid = styled(Grid)`
