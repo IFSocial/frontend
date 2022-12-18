@@ -225,7 +225,7 @@ function Signup() {
               ),
             }}
           />
-          <LabelError>{error}</LabelError>
+          <LabelError data-testeid="signupErro">{error}</LabelError>
           <Box textAlign="end" width="100%" mt="4px">
             <CustomButton1
               data-testid="cadastrar"

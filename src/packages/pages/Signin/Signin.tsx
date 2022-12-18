@@ -39,6 +39,13 @@ function Signin() {
     }
   };
 
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    if (event.key === 'Enter') {
+      handleLogin();
+    }
+  };
+
   return (
     <Grid
       container
@@ -95,6 +102,9 @@ function Signin() {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            onKeyPress={(e) => {
+              handleKeyPress(e);
+            }}
           />
           <TextField
             data-testid="inputSenha"
@@ -107,8 +117,11 @@ function Signin() {
             onChange={(e) => {
               setSenha(e.target.value);
             }}
+            onKeyPress={(e) => {
+              handleKeyPress(e);
+            }}
           />
-          <LabelError>{error}</LabelError>
+          <LabelError data-testeid="loginErro">{error}</LabelError>
           <Box textAlign="end" width="100%">
             <CustomButton1
               data-testid="btnEntrar"

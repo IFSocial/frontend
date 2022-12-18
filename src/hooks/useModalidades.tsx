@@ -1,26 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import api from '../services/api';
 
-type Modalidade = {
+interface Modalidade {
   id: string;
   titulo: string;
   imagem: string;
-};
+}
+interface Esportes {
+  id: string;
+  titulo: string;
+  imagem: string;
+}
 
-function useModalidades() {
-  const [modalidades, setModalidades] = useState<Modalidade[]>();
+function useModalidadesPage() {
+  const [todasModalidades, setTodasModalidades] = useState<Modalidade[]>();
+  const [todosEsportes, setTodosEsportes] = useState<Esportes[]>();
 
   async function getModalidades() {
     await api.get('modalidades').then((response) => {
-      setModalidades(response.data);
+      setTodasModalidades(response.data);
     });
   }
+
+  async function getEsportes() {
+    await api.get('modalidades').then((response) => {
+      setTodosEsportes(response.data);
+    });
+  }
+
   useEffect(() => {
     getModalidades();
-  }, [modalidades]);
+    getEsportes();
+  }, [todasModalidades, todosEsportes]);
 
-  return { modalidades };
+  return { todasModalidades, todosEsportes };
 }
 
-export default useModalidades;
+export default useModalidadesPage;

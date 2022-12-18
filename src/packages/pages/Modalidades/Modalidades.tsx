@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Grid } from '@mui/material';
 
 import { Footer, Header } from '../../../components';
-import { useAuth, useModalidades } from '../../../hooks';
+import { useAuth, useModalidadesPage } from '../../../hooks';
 import { Card } from '../../ui-kit';
 import { Title, CustomGrid } from './styles';
 
 function Modalidades() {
   const { logout } = useAuth();
-  const { modalidades } = useModalidades();
+  const { todasModalidades, todosEsportes } = useModalidadesPage();
   const navigate = useNavigate();
+
+  const [esportes, setEsportes] = useState<string | undefined>(undefined);
+
   return (
     <Grid container>
       <title>Semadec - Modalidades</title>
@@ -53,18 +56,31 @@ function Modalidades() {
             gap={3}
             justifyContent="center"
           >
-            {modalidades?.map((modalidade) => {
-              return (
-                <Card
-                  key={modalidade.id}
-                  subtitle={modalidade.titulo}
-                  image={modalidade.imagem}
-                  onClick={() => {
-                    navigate('/esportes');
-                  }}
-                />
-              );
-            })}
+            {esportes
+              ? todosEsportes?.map((modalidade) => {
+                  return (
+                    <Card
+                      key={modalidade.id}
+                      subtitle={modalidade.titulo}
+                      image={modalidade.imagem}
+                      onClick={() => {
+                        navigate('/');
+                      }}
+                    />
+                  );
+                })
+              : todasModalidades?.map((modalidade) => {
+                  return (
+                    <Card
+                      key={modalidade.id}
+                      subtitle={modalidade.titulo}
+                      image={modalidade.imagem}
+                      onClick={() => {
+                        setEsportes(modalidade.titulo);
+                      }}
+                    />
+                  );
+                })}
           </Box>
         </CustomGrid>
       </Grid>
