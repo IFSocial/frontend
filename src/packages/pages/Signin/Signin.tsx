@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Grid, TextField } from '@mui/material';
@@ -18,13 +18,19 @@ import {
 } from './styles';
 
 function Signin() {
-  const { authenticate } = useAuth();
+  const { authenticate, token } = useAuth();
   const { date } = useHome();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (token) {
+      navigate('/home');
+    }
+  });
 
   const handleLogin = async () => {
     if (!email || !senha) {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Visibility, VisibilityOff } from '@material-ui/icons';
@@ -42,8 +42,14 @@ function Signup() {
   const [passConfIsVisible, setPassConfIsVisible] = useState<boolean>(false);
   const navigate = useNavigate();
 
-  const { signup } = useAuth();
+  const { signup, token } = useAuth();
   const { date } = useHome();
+
+  useEffect(() => {
+    if (token) {
+      navigate('/home');
+    }
+  });
 
   const handleSignup = async () => {
     if (!email.match(emailRegex)) {
