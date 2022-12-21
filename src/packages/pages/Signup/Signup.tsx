@@ -64,10 +64,6 @@ function Signup() {
     }
     try {
       await signup(name, matricula, sexo, email, senha);
-
-      // eslint-disable-next-line no-alert
-      alert('Usuário cadatrado com sucesso!');
-
       navigate('/');
     } catch (err) {
       setError('Algo deu errado');
