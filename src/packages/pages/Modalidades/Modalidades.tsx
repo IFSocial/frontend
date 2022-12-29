@@ -64,7 +64,8 @@ function Modalidades() {
                       subtitle={modalidade.nomeEsporte}
                       image={modalidade.Imagem}
                       onClick={() => {
-                        navigate('/');
+                        // eslint-disable-next-line no-console
+                        console.log('Navega');
                       }}
                     />
                   );
