@@ -32,7 +32,7 @@ function Modalidades() {
         my="20px"
       >
         <Box width="100%">
-          <Title>Modalidades</Title>
+          <Title>{esportes ? 'Esportes' : 'Modalidades'}</Title>
         </Box>
         <CustomGrid
           container
@@ -60,9 +60,9 @@ function Modalidades() {
               ? todosEsportes?.map((modalidade) => {
                   return (
                     <Card
-                      key={modalidade.id}
-                      subtitle={modalidade.titulo}
-                      image={modalidade.imagem}
+                      key={modalidade.nomeEsporte}
+                      subtitle={modalidade.nomeEsporte}
+                      image={modalidade.Imagem}
                       onClick={() => {
                         navigate('/');
                       }}
@@ -73,10 +73,10 @@ function Modalidades() {
                   return (
                     <Card
                       key={modalidade.id}
-                      subtitle={modalidade.titulo}
+                      subtitle={modalidade.modalidade}
                       image={modalidade.imagem}
                       onClick={() => {
-                        setEsportes(modalidade.titulo);
+                        setEsportes(modalidade.modalidade);
                       }}
                     />
                   );

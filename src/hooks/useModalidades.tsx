@@ -4,13 +4,12 @@ import api from '../services/api';
 
 interface Modalidade {
   id: string;
-  titulo: string;
+  modalidade: string;
   imagem: string;
 }
 interface Esportes {
-  id: string;
-  titulo: string;
-  imagem: string;
+  nomeEsporte: string;
+  Imagem: string;
 }
 
 function useModalidadesPage() {
@@ -24,7 +23,7 @@ function useModalidadesPage() {
   }
 
   async function getEsportes() {
-    await api.get('modalidades').then((response) => {
+    await api.get('esportes').then((response) => {
       setTodosEsportes(response.data);
     });
   }
