@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Grid, TextField } from '@mui/material';
@@ -18,13 +18,19 @@ import {
 } from './styles';
 
 function Signin() {
-  const { authenticate } = useAuth();
+  const { authenticate, token } = useAuth();
   const { date } = useHome();
   const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (token) {
+      navigate('/home');
+    }
+  });
 
   const handleLogin = async () => {
     if (!email || !senha) {
@@ -36,6 +42,13 @@ function Signin() {
       navigate('/home');
     } catch {
       setError('E-mail ou senha incorretos');
+    }
+  };
+
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    if (event.key === 'Enter') {
+      handleLogin();
     }
   };
 
@@ -95,6 +108,9 @@ function Signin() {
             onChange={(e) => {
               setEmail(e.target.value);
             }}
+            onKeyPress={(e) => {
+              handleKeyPress(e);
+            }}
           />
           <TextField
             data-testid="inputSenha"
@@ -107,8 +123,11 @@ function Signin() {
             onChange={(e) => {
               setSenha(e.target.value);
             }}
+            onKeyPress={(e) => {
+              handleKeyPress(e);
+            }}
           />
-          <LabelError>{error}</LabelError>
+          <LabelError data-testeid="loginErro">{error}</LabelError>
           <Box textAlign="end" width="100%">
             <CustomButton1
               data-testid="btnEntrar"
