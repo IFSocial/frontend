@@ -21,8 +21,8 @@ export const Conteudo = styled.p`
   font-family: 'Montserrat';
   font-weight: 400;
   font-size: 24px;
-  line-height: 100%;
-  letter-spacing: 0.08em;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
   word-break: break-all;
 `;
 
