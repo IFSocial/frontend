@@ -27,7 +27,7 @@ function useHome() {
   useEffect(() => {
     getNoticias();
     getData();
-  }, []);
+  }, [noticias, date]);
 
   const content = (
     <ul>

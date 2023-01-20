@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import {
+  AccountCircle,
   Home,
   QueryBuilder,
   PhoneAndroid,
@@ -84,6 +85,17 @@ function HeaderMobileContent({ onClick }: { onClick?: () => void }) {
               color="#000"
             >
               Contatos
+            </LinkMobile>
+          </Box>
+          <Box display="flex" flexDirection="row" gap={1}>
+            <AccountCircle />
+            <LinkMobile
+              data-testid="perfil-popover"
+              href="/perfil"
+              underline="none"
+              color="#000"
+            >
+              Meu perfil
             </LinkMobile>
           </Box>
           <Box display="flex" flexDirection="row" gap={1}>

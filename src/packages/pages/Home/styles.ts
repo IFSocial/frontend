@@ -3,14 +3,6 @@ import { Grid, Button, ButtonProps } from '@mui/material';
 import { styled as MUIStyled } from '@mui/material/styles';
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-`;
-
 export const Title = styled.h1`
   font-family: 'Montserrat';
   font-weight: 800;
@@ -29,8 +21,9 @@ export const Conteudo = styled.p`
   font-family: 'Montserrat';
   font-weight: 400;
   font-size: 24px;
-  line-height: 100%;
-  letter-spacing: 0.08em;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+  word-break: break-all;
 `;
 
 export const CustomGrid = styled(Grid)`
