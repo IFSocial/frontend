@@ -23,7 +23,7 @@ export const Conteudo = styled.p`
   font-size: 24px;
   line-height: 1.15;
   letter-spacing: 0.05em;
-  word-break: break-all;
+  word-break: keep-all;
 `;
 
 export const CustomGrid = styled(Grid)`
