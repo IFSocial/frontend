@@ -48,6 +48,9 @@ function Horarios() {
     boxShadow: 24,
     p: 4,
   };
+
+  const isAdmin = true;
+
   return (
     <>
       <Grid container>
@@ -108,16 +111,18 @@ function Horarios() {
                 </IconButton>
               </Box>
 
-              <Box width="45%" textAlign="right">
-                <CustomButton1
-                  data-testid="ver-modalidades"
-                  variant="contained"
-                  size="large"
-                  onClick={() => setOpen(true)}
-                >
-                  Cadastrar Novo Horário
-                </CustomButton1>
-              </Box>
+              {isAdmin ? (
+                <Box width="45%" textAlign="right">
+                  <CustomButton1
+                    data-testid="ver-modalidades"
+                    variant="contained"
+                    size="large"
+                    onClick={() => setOpen(true)}
+                  >
+                    Cadastrar Novo Horário
+                  </CustomButton1>
+                </Box>
+              ) : null}
             </Box>
             <Box
               width="100%"
@@ -189,7 +194,7 @@ function Horarios() {
           <Typography variant="h6" component="h2">
             Cadastrar Novo Horário
           </Typography>
-          <Box display="flex" flexDirection="column" gap={3}>
+          <Box display="flex" flexDirection="column" gap={3} my="12px">
             <Box>
               <TextField
                 data-testid="inputJogo"
