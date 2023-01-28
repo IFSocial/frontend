@@ -44,6 +44,7 @@ export async function SignupRequest(
       sexo,
       email,
       password,
+      roles: 'user',
     });
 
     return request.data;

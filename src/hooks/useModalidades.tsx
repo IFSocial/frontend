@@ -10,6 +10,7 @@ interface Modalidade {
 interface Esportes {
   nomeEsporte: string;
   Imagem: string;
+  modalidade: string;
 }
 
 function useModalidadesPage() {
@@ -22,18 +23,42 @@ function useModalidadesPage() {
     });
   }
 
+  async function createModalidade(imagem: string, modalidade: string) {
+    await api
+      .post('modalidades/createModalidades', {
+        imagem,
+        modalidade,
+        sexo: '?',
+      })
+      .then(getModalidades);
+  }
+
   async function getEsportes() {
     await api.get('esportes').then((response) => {
       setTodosEsportes(response.data);
     });
   }
 
+  async function createEsporte(
+    nomeEsporte: string,
+    Imagem: string,
+    modalidade: string,
+  ) {
+    await api
+      .post('esportes/createEsportes', {
+        nomeEsporte,
+        Imagem,
+        modalidade,
+      })
+      .then(getEsportes);
+  }
+
   useEffect(() => {
     getModalidades();
     getEsportes();
-  }, [todasModalidades, todosEsportes]);
+  }, []);
 
-  return { todasModalidades, todosEsportes };
+  return { todasModalidades, todosEsportes, createModalidade, createEsporte };
 }
 
 export default useModalidadesPage;

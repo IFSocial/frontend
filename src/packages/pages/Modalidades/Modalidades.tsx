@@ -20,7 +20,8 @@ import { Title, CustomGrid, CustomButton1 } from './styles';
 
 function Modalidades() {
   const { logout } = useAuth();
-  const { todasModalidades, todosEsportes } = useModalidadesPage();
+  const { todasModalidades, todosEsportes, createModalidade, createEsporte } =
+    useModalidadesPage();
   const navigate = useNavigate();
 
   const [esportes, setEsportes] = useState<string | undefined>(undefined);
@@ -103,19 +104,25 @@ function Modalidades() {
               justifyContent="center"
             >
               {esportes
-                ? todosEsportes?.map((modalidade) => {
-                    return (
-                      <Card
-                        key={modalidade.nomeEsporte}
-                        subtitle={modalidade.nomeEsporte}
-                        image={modalidade.Imagem}
-                        onClick={() => {
-                          // eslint-disable-next-line no-console
-                          console.log('Navega');
-                        }}
-                      />
-                    );
-                  })
+                ? todosEsportes
+                    ?.filter((modalidade) =>
+                      modalidade.modalidade
+                        .toLowerCase()
+                        .includes(esportes.toLowerCase()),
+                    )
+                    .map((modalidade) => {
+                      return (
+                        <Card
+                          key={modalidade.nomeEsporte}
+                          subtitle={modalidade.nomeEsporte}
+                          image={modalidade.Imagem}
+                          onClick={() => {
+                            // eslint-disable-next-line no-console
+                            console.log('Navega');
+                          }}
+                        />
+                      );
+                    })
                 : todasModalidades?.map((modalidade) => {
                     return (
                       <Card
@@ -196,7 +203,12 @@ function Modalidades() {
               data-testid="ver-modalidades"
               variant="contained"
               size="large"
-              onClick={() => setOpenModalidade(true)}
+              onClick={() => {
+                createModalidade(imagemModalidade, nomeModalidade);
+                setImagemModalidade('');
+                setNomeModalidade('');
+                setOpenModalidade(false);
+              }}
             >
               Cadastrar
             </CustomButton1>
@@ -238,16 +250,26 @@ function Modalidades() {
               label="Modalidade"
               onChange={(e) => setEsporteModalidade(e.target.value)}
             >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
+              {todasModalidades?.map((modalidade) => {
+                return (
+                  <MenuItem key={modalidade.id} value={modalidade.modalidade}>
+                    {modalidade.modalidade}
+                  </MenuItem>
+                );
+              })}
             </Select>
 
             <CustomButton1
               data-testid="ver-modalidades"
               variant="contained"
               size="large"
-              onClick={() => setOpenEsporte(true)}
+              onClick={() => {
+                createEsporte(nomeEsporte, imagemEsporte, esporteModalidade);
+                setNomeEsporte('');
+                setImagemEsporte('');
+                setEsporteModalidade('');
+                setOpenEsporte(false);
+              }}
             >
               Cadastrar
             </CustomButton1>

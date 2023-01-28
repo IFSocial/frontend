@@ -17,7 +17,7 @@ import {
 function Home() {
   const { logout } = useAuth();
   const navigate = useNavigate();
-  const { content, date } = useHome();
+  const { content, date, editData, editNoticias } = useHome();
 
   const [isEditingDate, setIsEditingDate] = useState<boolean>(false);
   const [data, setData] = useState('');
@@ -66,7 +66,12 @@ function Home() {
                 />
               </Box>
             ) : (
-              <Subtitle>{date}</Subtitle>
+              <Subtitle>
+                Data do Evento: {}
+                {date?.map((dataSemadec) => {
+                  return dataSemadec.dataEvento;
+                })}
+              </Subtitle>
             )}
             {isAdmin && (
               <Box>
@@ -87,7 +92,10 @@ function Home() {
                     </Button>
 
                     <Button
-                      onClick={() => setIsEditingDate(false)}
+                      onClick={() => {
+                        editData(data);
+                        setIsEditingDate(false);
+                      }}
                       variant="contained"
                     >
                       Salvar
@@ -127,7 +135,7 @@ function Home() {
                   data-testid="inputConteudo"
                   label="Conteudo Principal"
                   variant="outlined"
-                  value={newContent}
+                  value={newContent || content}
                   onChange={(e) => {
                     setNewContent(e.target.value);
                   }}
@@ -149,13 +157,19 @@ function Home() {
                     gap={3}
                   >
                     <Button
-                      onClick={() => setIsEditingContent(false)}
+                      onClick={() => {
+                        setIsEditingContent(false);
+                        setNewContent('');
+                      }}
                       variant="outlined"
                     >
                       Cancelar
                     </Button>
                     <Button
-                      onClick={() => setIsEditingContent(false)}
+                      onClick={() => {
+                        editNoticias(newContent);
+                        setIsEditingContent(false);
+                      }}
                       variant="contained"
                     >
                       Salvar
