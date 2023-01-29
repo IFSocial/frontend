@@ -123,6 +123,16 @@ function Horarios() {
                   </CustomButton1>
                 </Box>
               ) : null}
+              <Box width="15%" textAlign="center">
+                <CustomButton1
+                  data-testid="ver-modalidades"
+                  variant="contained"
+                  size="large"
+                  onClick={() => navigate('/equipes')}
+                >
+                  Ver Times
+                </CustomButton1>
+              </Box>
             </Box>
             <Box
               width="100%"

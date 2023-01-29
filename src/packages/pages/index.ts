@@ -6,3 +6,4 @@ export * from './Perfil';
 export * from './Signin';
 export * from './Signup';
 export * from './Times';
+export * from './Equipes';

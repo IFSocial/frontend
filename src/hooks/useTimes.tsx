@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import api from '../services/api';
 
 export interface Times {
+  _id?: string;
   nomeTime: string;
   nomeParticipantes: string[];
   matricula: string[];
@@ -23,6 +24,10 @@ function useTimes() {
   async function getTimeById(id: string | undefined) {
     const request = await api.get(`/equipes/${id}`);
     return request.data;
+  }
+
+  async function deleteTime(id: string | undefined) {
+    await api.delete(`/equipes/deleteequipes/${id}`).then(getTimes);
   }
 
   async function createTime({
@@ -53,6 +58,7 @@ function useTimes() {
     todosTimes,
     createTime,
     getTimeById,
+    deleteTime,
   };
 }
 

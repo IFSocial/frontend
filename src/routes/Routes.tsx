@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { ProtectedLayout } from '../components/ProtectedLayout';
 import {
   Contatos,
+  Equipes,
   Home,
   Horarios,
   Modalidades,
@@ -62,6 +63,14 @@ function RoutesApp() {
           element={
             <ProtectedLayout>
               <Times />
+            </ProtectedLayout>
+          }
+        />
+        <Route
+          path="/equipes"
+          element={
+            <ProtectedLayout>
+              <Equipes />
             </ProtectedLayout>
           }
         />
