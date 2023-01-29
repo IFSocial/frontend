@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+/* eslint-disable no-underscore-dangle */
+import React, { useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Search } from '@material-ui/icons';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import {
   Box,
   Grid,
@@ -12,7 +14,7 @@ import {
 } from '@mui/material';
 
 import { Footer, Header } from '../../../components';
-import { useAuth } from '../../../hooks';
+import { useAuth, useHorarios } from '../../../hooks';
 import {
   Title,
   Cell,
@@ -26,6 +28,8 @@ import {
 
 function Horarios() {
   const { logout } = useAuth();
+  const { createHorario, todosHorarios, deleteHorario } = useHorarios();
+
   const navigate = useNavigate();
   const [pesquisa, setPesquisa] = useState<string>('');
 
@@ -34,8 +38,10 @@ function Horarios() {
   const [data, setData] = useState<string>('');
   const [horario, setHorario] = useState<string>('');
   const [rodada, setRodada] = useState<string>('');
+  const [idPartida, setIdPartida] = useState<string>();
 
   const [open, setOpen] = useState<boolean>(false);
+  const [openDelete, setOpenDelete] = useState<boolean>(false);
 
   const style = {
     position: 'absolute' as const,
@@ -50,6 +56,18 @@ function Horarios() {
   };
   const auth = useAuth();
   const isAdmin = auth.role === 'admin';
+
+  const horariosFiltrados = useMemo(() => {
+    const lowerFilter = pesquisa?.toLowerCase();
+    return pesquisa
+      ? todosHorarios?.filter(
+          (hora) =>
+            hora.partidaVS.toLowerCase().includes(lowerFilter ?? '') ||
+            hora.horarios.toLowerCase().includes(lowerFilter ?? '') ||
+            hora.data.toLowerCase().includes(lowerFilter ?? ''),
+        )
+      : todosHorarios;
+  }, [pesquisa, todosHorarios]);
 
   return (
     <>
@@ -100,7 +118,7 @@ function Horarios() {
               >
                 <TextField
                   data-testid="pesquisarHorarios"
-                  placeholder="Pesquisar por data ou modalidade"
+                  placeholder="Pesquisar por data, time ou horário"
                   fullWidth
                   onChange={(e) => {
                     setPesquisa(e.target.value);
@@ -160,26 +178,45 @@ function Horarios() {
                   <Cell>
                     <TituloConteudo>Rodada</TituloConteudo>
                   </Cell>
+                  {isAdmin && (
+                    <Cell>
+                      <TituloConteudo>Deletar Time</TituloConteudo>
+                    </Cell>
+                  )}
                 </Row>
-                <Row>
-                  <Cell>
-                    <Conteudo>12</Conteudo>
-                  </Cell>
-                  <Cell>
-                    <Conteudo>Turmaxablaus</Conteudo>
-                    <Conteudo>x</Conteudo>
-                    <Conteudo>Turmaxablaus</Conteudo>
-                  </Cell>
-                  <Cell>
-                    <Conteudo>12/12/2012</Conteudo>
-                  </Cell>
-                  <Cell>
-                    <Conteudo>12:12</Conteudo>
-                  </Cell>
-                  <Cell>
-                    <Conteudo>12</Conteudo>
-                  </Cell>
-                </Row>
+                {horariosFiltrados?.map((hora) => {
+                  return (
+                    <Row>
+                      <Cell>
+                        <Conteudo>{hora.jogos}</Conteudo>
+                      </Cell>
+                      <Cell>
+                        <Conteudo>{hora.partidaVS}</Conteudo>
+                      </Cell>
+                      <Cell>
+                        <Conteudo>{hora.data}</Conteudo>
+                      </Cell>
+                      <Cell>
+                        <Conteudo>{hora.horarios}</Conteudo>
+                      </Cell>
+                      <Cell>
+                        <Conteudo>{hora.rodada}</Conteudo>
+                      </Cell>
+                      {isAdmin && (
+                        <Cell>
+                          <IconButton
+                            onClick={() => {
+                              setIdPartida(hora._id);
+                              setOpenDelete(true);
+                            }}
+                          >
+                            <DeleteForeverIcon />
+                          </IconButton>
+                        </Cell>
+                      )}
+                    </Row>
+                  );
+                })}
               </Table>
             </Box>
           </CustomGrid>
@@ -209,7 +246,7 @@ function Horarios() {
               <TextField
                 data-testid="inputJogo"
                 placeholder="Jogo"
-                label="Jogo"
+                label="Jogo (número)"
                 fullWidth
                 value={jogo}
                 onChange={(e) => {
@@ -261,9 +298,48 @@ function Horarios() {
               data-testid="ver-modalidades"
               variant="contained"
               size="large"
-              onClick={() => setOpen(true)}
+              onClick={() => {
+                createHorario({
+                  jogos: jogo,
+                  partidaVS: partida,
+                  data,
+                  horarios: horario,
+                  rodada,
+                  times: '?',
+                });
+                setOpen(false);
+              }}
             >
               Cadastrar
+            </CustomButton1>
+          </Box>
+        </Box>
+      </Modal>
+
+      <Modal
+        open={openDelete}
+        onClose={() => setOpenDelete(false)}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <Box display="flex" textAlign="center">
+            <Typography variant="h6" component="h2">
+              Tem certeza que quer deletar essa partida? Está ação não poderá
+              ser desfeita.
+            </Typography>
+          </Box>
+          <Box display="flex" flexDirection="column" gap={3} my="12px">
+            <CustomButton1
+              data-testid="ver-modalidades"
+              variant="contained"
+              size="large"
+              onClick={() => {
+                deleteHorario(idPartida);
+                setOpenDelete(false);
+              }}
+            >
+              Deletar
             </CustomButton1>
           </Box>
         </Box>
