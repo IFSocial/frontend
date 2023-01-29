@@ -1,4 +1,4 @@
-import { green, deepPurple } from '@material-ui/core/colors';
+import { green } from '@material-ui/core/colors';
 import { Grid, Button, ButtonProps } from '@mui/material';
 import { styled as MUIStyled } from '@mui/material/styles';
 import styled from 'styled-components';
@@ -10,24 +10,48 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.Primary900};
 `;
 
-export const Subtitle = styled.p`
-  font-size: 24px;
+export const CustomGrid = styled(Grid)`
+  background-color: ${({ theme }) => theme.colors.Primary400};
+`;
+
+export const TituloConteudo = styled.p`
   font-family: 'Montserrat';
-  font-weight: 400;
-  color: ${({ theme }) => theme.colors.Primary900};
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 100%;
+  word-break: keep-all;
 `;
 
 export const Conteudo = styled.p`
   font-family: 'Montserrat';
   font-weight: 400;
-  font-size: 24px;
-  line-height: 1.15;
-  letter-spacing: 0.05em;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0.08em;
   word-break: keep-all;
 `;
 
-export const CustomGrid = styled(Grid)`
+export const Table = styled.div`
+  border-radius: 10px;
   background-color: ${({ theme }) => theme.colors.Primary400};
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const Row = styled.div`
+  min-height: 96px;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`;
+
+export const Cell = styled.div`
+  width: 20%;
 `;
 
 export const CustomButton1 = MUIStyled(Button)<ButtonProps>(({ theme }) => ({
@@ -35,13 +59,5 @@ export const CustomButton1 = MUIStyled(Button)<ButtonProps>(({ theme }) => ({
   backgroundColor: green[800],
   '&:hover': {
     backgroundColor: green[900],
-  },
-}));
-
-export const CustomButton2 = MUIStyled(Button)<ButtonProps>(({ theme }) => ({
-  color: theme.palette.getContrastText(deepPurple[600]),
-  backgroundColor: deepPurple[700],
-  '&:hover': {
-    backgroundColor: deepPurple[900],
   },
 }));

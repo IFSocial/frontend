@@ -3,13 +3,16 @@ import { useEffect, useState } from 'react';
 import api from '../services/api';
 
 interface Modalidade {
-  id: string;
+  _id: string;
   modalidade: string;
   imagem: string;
 }
-interface Esportes {
+export interface Esportes {
+  _id: string;
   nomeEsporte: string;
   Imagem: string;
+  modalidade: string;
+  multiPlayers: boolean;
 }
 
 function useModalidadesPage() {
@@ -22,18 +25,65 @@ function useModalidadesPage() {
     });
   }
 
+  async function createModalidade(imagem: string, modalidade: string) {
+    await api
+      .post('modalidades/createModalidades', {
+        imagem,
+        modalidade,
+        sexo: '?',
+      })
+      .then(getModalidades);
+  }
+
+  async function deleteModalidade(id: string | undefined) {
+    await api.delete(`modalidades/deletemodalides/${id}`).then(getModalidades);
+  }
+
   async function getEsportes() {
     await api.get('esportes').then((response) => {
       setTodosEsportes(response.data);
     });
   }
 
+  async function getEsporteById(id: string | undefined) {
+    const request = await api.get(`/esportes/${id}`);
+    return request.data;
+  }
+
+  async function deleteEsporte(id: string | undefined) {
+    await api.delete(`esportes/deleteesportes/${id}`).then(getEsportes);
+  }
+
+  async function createEsporte(
+    nomeEsporte: string,
+    Imagem: string,
+    modalidade: string,
+    multiPlayers: boolean,
+  ) {
+    await api
+      .post('esportes/createEsportes', {
+        nomeEsporte,
+        Imagem,
+        modalidade,
+        multiPlayers,
+      })
+      .then(getEsportes);
+  }
+
   useEffect(() => {
     getModalidades();
     getEsportes();
-  }, [todasModalidades, todosEsportes]);
+  }, []);
 
-  return { todasModalidades, todosEsportes };
+  return {
+    todasModalidades,
+    todosEsportes,
+    createModalidade,
+    createEsporte,
+    getEsporteById,
+    deleteModalidade,
+    deleteEsporte,
+  };
 }
 
 export default useModalidadesPage;

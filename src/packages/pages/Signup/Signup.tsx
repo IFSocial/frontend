@@ -102,7 +102,11 @@ function Signup() {
       >
         <Box maxWidth="500px">
           <Title>BEM-VINDO À SEMADEC</Title>
-          <Subtitle>{date}</Subtitle>
+          <Subtitle>
+            {date?.map((dataSemadec) => {
+              return dataSemadec.dataEvento;
+            })}
+          </Subtitle>
           <CustomImage src={logo} alt="logo" />
         </Box>
       </CustomGridLeft>
