@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import api from '../services/api';
 
 interface Modalidade {
-  id: string;
+  _id: string;
   modalidade: string;
   imagem: string;
 }
@@ -35,6 +35,10 @@ function useModalidadesPage() {
       .then(getModalidades);
   }
 
+  async function deleteModalidade(id: string | undefined) {
+    await api.delete(`modalidades/deletemodalides/${id}`).then(getModalidades);
+  }
+
   async function getEsportes() {
     await api.get('esportes').then((response) => {
       setTodosEsportes(response.data);
@@ -44,6 +48,10 @@ function useModalidadesPage() {
   async function getEsporteById(id: string | undefined) {
     const request = await api.get(`/esportes/${id}`);
     return request.data;
+  }
+
+  async function deleteEsporte(id: string | undefined) {
+    await api.delete(`esportes/deleteesportes/${id}`).then(getEsportes);
   }
 
   async function createEsporte(
@@ -73,6 +81,8 @@ function useModalidadesPage() {
     createModalidade,
     createEsporte,
     getEsporteById,
+    deleteModalidade,
+    deleteEsporte,
   };
 }
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -138,7 +139,7 @@ function Modalidades() {
                 : todasModalidades?.map((modalidade) => {
                     return (
                       <Card
-                        key={modalidade.id}
+                        key={modalidade._id}
                         subtitle={modalidade.modalidade}
                         image={modalidade.imagem}
                         onClick={() => {
@@ -148,7 +149,19 @@ function Modalidades() {
                     );
                   })}
             </Box>
-            <Box display="flex" width="95%" justifyContent="right">
+            <Box display="flex" width="95%" justifyContent="right" gap={3}>
+              {isAdmin && (
+                <CustomButton1
+                  data-testid="modalNovaModalidade"
+                  variant="contained"
+                  size="large"
+                  onClick={() => {
+                    navigate('/deleteInfo');
+                  }}
+                >
+                  Deletar Modalidade/Esporte
+                </CustomButton1>
+              )}
               {isAdmin && !esportes ? (
                 <CustomButton1
                   data-testid="modalNovaModalidade"
@@ -265,7 +278,7 @@ function Modalidades() {
             >
               {todasModalidades?.map((modalidade) => {
                 return (
-                  <MenuItem key={modalidade.id} value={modalidade.modalidade}>
+                  <MenuItem key={modalidade._id} value={modalidade.modalidade}>
                     {modalidade.modalidade}
                   </MenuItem>
                 );
