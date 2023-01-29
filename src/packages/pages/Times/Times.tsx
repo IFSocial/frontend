@@ -85,7 +85,8 @@ function Times() {
     try {
       await createTime({
         nomeTime: nomeTime || nomeTurma,
-        nomeParticipantes: jogadoresDoTime ? [jogador] : jogadoresDoTime,
+        nomeParticipantes:
+          jogadoresDoTime.length === 0 ? [jogador] : jogadoresDoTime,
         matricula:
           matriculasDoTime.length === 0 ? [matricula] : matriculasDoTime,
         categoria,

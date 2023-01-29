@@ -1,13 +1,19 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { ArrowBack } from '@material-ui/icons';
 import {
   Box,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
   Grid,
   IconButton,
   MenuItem,
   Modal,
+  Radio,
+  RadioGroup,
   Select,
   TextField,
   Typography,
@@ -49,6 +55,11 @@ function Modalidades() {
 
   const auth = useAuth();
   const isAdmin = auth.role === 'admin';
+
+  const [isMultiple, setIsMultiple] = useState(false);
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setIsMultiple(event.target.value.toLowerCase() === 'true');
+  };
 
   return (
     <>
@@ -149,7 +160,7 @@ function Modalidades() {
                 >
                   Cadastrar Nova Modalidade
                 </CustomButton1>
-              ) : (
+              ) : isAdmin ? (
                 <CustomButton1
                   data-testid="modalNovoEsporte"
                   variant="contained"
@@ -160,7 +171,7 @@ function Modalidades() {
                 >
                   Cadastrar Novo Esporte
                 </CustomButton1>
-              )}
+              ) : null}
             </Box>
           </CustomGrid>
         </Grid>
@@ -200,6 +211,7 @@ function Modalidades() {
                 setImagemModalidade(e.target.value);
               }}
             />
+
             <CustomButton1
               data-testid="ver-modalidades"
               variant="contained"
@@ -260,12 +272,44 @@ function Modalidades() {
               })}
             </Select>
 
+            <FormControl component="fieldset" fullWidth>
+              <Box textAlign="left" mt="4px">
+                <FormLabel component="legend">
+                  Esse esporte aceita mais de uma pessoa por time?
+                </FormLabel>
+              </Box>
+              <RadioGroup
+                aria-label="gender"
+                name="gender"
+                value={isMultiple}
+                onChange={handleChange}
+              >
+                <Box>
+                  <FormControlLabel
+                    value="true"
+                    control={<Radio />}
+                    label="Sim"
+                  />
+                  <FormControlLabel
+                    value="false"
+                    control={<Radio />}
+                    label="Não"
+                  />
+                </Box>
+              </RadioGroup>
+            </FormControl>
+
             <CustomButton1
               data-testid="ver-modalidades"
               variant="contained"
               size="large"
               onClick={() => {
-                createEsporte(nomeEsporte, imagemEsporte, esporteModalidade);
+                createEsporte(
+                  nomeEsporte,
+                  imagemEsporte,
+                  esporteModalidade,
+                  isMultiple,
+                );
                 setNomeEsporte('');
                 setImagemEsporte('');
                 setEsporteModalidade('');

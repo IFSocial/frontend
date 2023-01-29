@@ -50,12 +50,14 @@ function useModalidadesPage() {
     nomeEsporte: string,
     Imagem: string,
     modalidade: string,
+    multiPlayers: boolean,
   ) {
     await api
       .post('esportes/createEsportes', {
         nomeEsporte,
         Imagem,
         modalidade,
+        multiPlayers,
       })
       .then(getEsportes);
   }
