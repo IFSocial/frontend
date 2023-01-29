@@ -1,12 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
+import { ArrowBack } from '@material-ui/icons';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
-import { Box, Grid, IconButton, TextField } from '@mui/material';
+import { Box, Grid, IconButton, TextField, Typography } from '@mui/material';
 
 import { Footer, Header } from '../../../components';
-import { useAuth, useModalidadesPage } from '../../../hooks';
+import { useAuth, useModalidadesPage, useTimes } from '../../../hooks';
 import { Esportes } from '../../../hooks/useModalidades';
 import {
   Title,
@@ -16,9 +18,11 @@ import {
   CustomButton1,
   CustomButton2,
 } from './styles';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Times() {
   const { logout } = useAuth();
+  const { createTime } = useTimes();
   const navigate = useNavigate();
   const { getEsporteById } = useModalidadesPage();
   const [esporte, setEsporte] = useState<Esportes>();
@@ -34,9 +38,9 @@ function Times() {
     loadEsporte();
   }, []);
 
-  const [nomeTime, setNomeTime] = useState('');
   const [categoria, setCategoria] = useState('');
   const [nomeTurma, setNomeTurma] = useState('');
+  const [nomeTime, setNomeTime] = useState(nomeTurma);
 
   const [jogador, setJogador] = useState('');
   const [matricula, setMatricula] = useState('');
@@ -44,7 +48,64 @@ function Times() {
   const [jogadoresDoTime, setJogadoresDoTime] = useState<string[]>([]);
   const [matriculasDoTime, setMatriculasDoTime] = useState<string[]>([]);
 
-  const isIndividual = false;
+  const isIndividual = !esporte?.multiPlayers;
+
+  const handleInscrever = async () => {
+    if (
+      !isIndividual &&
+      (!categoria || !nomeTurma || !jogadoresDoTime || !matriculasDoTime)
+    ) {
+      toast.error('Preencha todos os dados!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: 'colored',
+      });
+      return;
+    }
+
+    if (isIndividual && (!categoria || !jogador || !matricula || !nomeTurma)) {
+      toast.error('Preencha todos os dados!', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: 'colored',
+      });
+      return;
+    }
+
+    try {
+      await createTime({
+        nomeTime: nomeTime || nomeTurma,
+        nomeParticipantes: jogadoresDoTime ? [jogador] : jogadoresDoTime,
+        matricula:
+          matriculasDoTime.length === 0 ? [matricula] : matriculasDoTime,
+        categoria,
+        Turma: nomeTurma,
+        esporte: esporte?.nomeEsporte,
+      });
+      navigate('/modalidades');
+    } catch (err) {
+      toast.error('Algo deu errado', {
+        position: 'top-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        progress: undefined,
+        theme: 'colored',
+      });
+    }
+  };
 
   return (
     <Grid container>
@@ -54,6 +115,18 @@ function Times() {
           logout();
           navigate('/');
         }}
+      />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        pauseOnHover={false}
+        theme="colored"
       />
       <Grid
         container
@@ -80,6 +153,14 @@ function Times() {
           border="1px solid #000"
           borderRadius="12px"
         >
+          <Box display="flex" width="100%" alignItems="center">
+            <IconButton onClick={() => navigate('/modalidades')}>
+              <ArrowBack style={{ color: '#000', fontSize: '44px' }} />
+              <Typography variant="h6" component="h2">
+                Voltar
+              </Typography>
+            </IconButton>
+          </Box>
           <Box
             display="flex"
             width="100%"
@@ -135,7 +216,7 @@ function Times() {
                 flexDirection="column"
                 alignItems="center"
               >
-                <Subtitle>Time</Subtitle>
+                <Subtitle>Jogadores</Subtitle>
                 <Box
                   display="flex"
                   justifyContent="space-around"
@@ -250,7 +331,9 @@ function Times() {
                   size="large"
                   disabled={
                     jogadoresDoTime.length >= 14 ||
-                    matriculasDoTime.length >= 14
+                    matriculasDoTime.length >= 14 ||
+                    !matricula ||
+                    !jogador
                   }
                   onClick={() => {
                     setJogadoresDoTime([...jogadoresDoTime, jogador]);
@@ -280,7 +363,7 @@ function Times() {
                 (isIndividual && (!matricula || !jogador))
               }
               onClick={() => {
-                console.log('inscreve');
+                handleInscrever();
               }}
             >
               Inscrever-se

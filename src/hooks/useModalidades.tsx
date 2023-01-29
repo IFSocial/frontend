@@ -12,6 +12,7 @@ export interface Esportes {
   nomeEsporte: string;
   Imagem: string;
   modalidade: string;
+  multiPlayers: boolean;
 }
 
 function useModalidadesPage() {
