@@ -47,7 +47,8 @@ function Modalidades() {
     p: 4,
   };
 
-  const isAdmin = true;
+  const auth = useAuth();
+  const isAdmin = auth.role === 'admin';
 
   return (
     <>

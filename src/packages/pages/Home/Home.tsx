@@ -15,6 +15,7 @@ import {
 } from './styles';
 
 function Home() {
+  const auth = useAuth();
   const { logout } = useAuth();
   const navigate = useNavigate();
   const { content, date, editData, editNoticias } = useHome();
@@ -24,8 +25,7 @@ function Home() {
 
   const [isEditingContent, setIsEditingContent] = useState<boolean>(false);
   const [newContent, setNewContent] = useState('');
-
-  const isAdmin = true;
+  const isAdmin = auth.role === 'admin';
 
   return (
     <Grid container>

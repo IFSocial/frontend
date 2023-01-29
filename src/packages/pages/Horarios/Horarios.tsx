@@ -48,8 +48,8 @@ function Horarios() {
     boxShadow: 24,
     p: 4,
   };
-
-  const isAdmin = true;
+  const auth = useAuth();
+  const isAdmin = auth.role === 'admin';
 
   return (
     <>
