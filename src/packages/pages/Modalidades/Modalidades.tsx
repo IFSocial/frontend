@@ -117,8 +117,8 @@ function Modalidades() {
                           subtitle={modalidade.nomeEsporte}
                           image={modalidade.Imagem}
                           onClick={() => {
-                            // eslint-disable-next-line no-console
-                            console.log('Navega');
+                            // eslint-disable-next-line no-underscore-dangle
+                            navigate(`/times/${modalidade._id}`);
                           }}
                         />
                       );

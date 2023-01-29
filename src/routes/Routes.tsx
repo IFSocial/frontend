@@ -10,6 +10,7 @@ import {
   Perfil,
   Signin,
   Signup,
+  Times,
 } from '../packages/pages';
 
 function RoutesApp() {
@@ -53,6 +54,14 @@ function RoutesApp() {
           element={
             <ProtectedLayout>
               <Contatos />
+            </ProtectedLayout>
+          }
+        />
+        <Route
+          path="/times/:id"
+          element={
+            <ProtectedLayout>
+              <Times />
             </ProtectedLayout>
           }
         />

@@ -7,7 +7,8 @@ interface Modalidade {
   modalidade: string;
   imagem: string;
 }
-interface Esportes {
+export interface Esportes {
+  _id: string;
   nomeEsporte: string;
   Imagem: string;
   modalidade: string;
@@ -39,6 +40,11 @@ function useModalidadesPage() {
     });
   }
 
+  async function getEsporteById(id: string | undefined) {
+    const request = await api.get(`/esportes/${id}`);
+    return request.data;
+  }
+
   async function createEsporte(
     nomeEsporte: string,
     Imagem: string,
@@ -58,7 +64,13 @@ function useModalidadesPage() {
     getEsportes();
   }, []);
 
-  return { todasModalidades, todosEsportes, createModalidade, createEsporte };
+  return {
+    todasModalidades,
+    todosEsportes,
+    createModalidade,
+    createEsporte,
+    getEsporteById,
+  };
 }
 
 export default useModalidadesPage;
