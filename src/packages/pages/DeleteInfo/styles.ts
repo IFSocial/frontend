@@ -19,7 +19,7 @@ export const TituloConteudo = styled.p`
   font-weight: bold;
   font-size: 20px;
   line-height: 100%;
-  word-break: break-all;
+  word-break: keep-all;
 `;
 
 export const Conteudo = styled.p`
